@@ -2,10 +2,8 @@
 import React from 'react';
 import axios from 'axios';
 
-<<<<<<< HEAD
-=======
+
 import { LoginView } from '../login-view/login-view';
->>>>>>> main
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
@@ -15,12 +13,11 @@ export class MainView extends React.Component {
         super();
         this.state = {
           movies: [],
-<<<<<<< HEAD
-          selectedMovie: null
-=======
+
           selectedMovie: null,
+
           user: null
->>>>>>> main
+
         }
     }
   
@@ -37,13 +34,6 @@ export class MainView extends React.Component {
         });
     }
       
-<<<<<<< HEAD
-  setSelectedMovie(newSelectedMovie) {
-    this.setState({
-      selectedMovie: newSelectedMovie
-    });
-  }
-=======
     setSelectedMovie(newSelectedMovie) {
       this.setState({
         selectedMovie: newSelectedMovie
@@ -55,7 +45,7 @@ export class MainView extends React.Component {
         user
       });
     }
->>>>>>> main
+
     
 
   render() {
