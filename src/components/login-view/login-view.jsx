@@ -6,9 +6,9 @@ export function LoginView(props){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username,password);
+        console.log(username, password);
         props.onLoggedIn(username);
-    };
+      };
 
     return(
         <form>
@@ -21,7 +21,7 @@ export function LoginView(props){
                 <input type="password" value={password} onChange ={e=>setPassword(e.target.value)}/>
             </label>
             <button type="submit" onClick={handleSubmit}>Submit</button>
-            <button type="register" onClick={handleSubmit}>Register</button>
+            <button>Register</button>
         </form>
     );
 }
