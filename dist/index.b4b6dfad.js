@@ -24622,7 +24622,7 @@ function LoginView(props) {
     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default, {
         children: [
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
-                controlID: "formUsername",
+                controlid: "formUsername",
                 children: [
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Label, {
                         children: "Username:"
@@ -24647,7 +24647,7 @@ function LoginView(props) {
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
-                controlID: "formPass",
+                controid: "formPassword",
                 children: [
                     "Password:",
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
