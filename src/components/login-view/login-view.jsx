@@ -15,11 +15,12 @@ export function LoginView(props){
     return(
     <Container>
          <Row>
+            <Col></Col>
             <Col>
                 <CardGroup>
-                    <Card>
-                        <Card.Header>Welcome to MyFlixerupper!</Card.Header>
-                        <Form>
+                    <Card style={{textAlign:'center', marginTop:100, marginBottom: 50, width: '200px'}}>
+                        <Card.Title style={{textAlign:'center', margin: 10, fontsize:'20px'}}>Welcome to MyFlixerupper!</Card.Title>
+                        <Form style={{textAlign:'center', width: 250, margin: 50}}>
                             <Form.Group controlid="formUsername">
                                 <Form.Label>Username:</Form.Label> 
                                 <Form.Control type="text" value={username} onChange={e=>setUsername(e.target.value)}/>
@@ -34,6 +35,7 @@ export function LoginView(props){
                     </Card>
                 </CardGroup>
             </Col>
+            <Col></Col>
          </Row>
     </Container> 
         
