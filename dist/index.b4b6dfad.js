@@ -27794,7 +27794,6 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _card = require("react-bootstrap/Card");
-var _cardDefault = parcelHelpers.interopDefault(_card);
 class MovieView extends _reactDefault.default.Component {
     componentDidMount() {
         document.addEventListener('keypress', (event)=>{
@@ -27803,9 +27802,9 @@ class MovieView extends _reactDefault.default.Component {
     }
     render() {
         const { movie , onBackClick  } = this.props;
-        return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_cardDefault.default, {
+        return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_card.Card, {
             children: [
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_cardDefault.default.Img, {
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_card.Card.Img, {
                     variant: "top",
                     src: movie.ImagePath
                 }, void 0, false, {
@@ -27813,23 +27812,23 @@ class MovieView extends _reactDefault.default.Component {
                     lineNumber: 18,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_cardDefault.default.Body, {
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_card.Card.Body, {
                     children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_cardDefault.default.Title, {
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_card.Card.Title, {
                             children: movie.Title
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 20,
                             columnNumber: 13
                         }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_cardDefault.default.Text, {
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_card.Card.Text, {
                             children: movie.Description
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 21,
                             columnNumber: 13
                         }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_cardDefault.default.Subtitle, {
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_card.Card.Subtitle, {
                             children: [
                                 movie.Director,
                                 " "
@@ -27845,7 +27844,7 @@ class MovieView extends _reactDefault.default.Component {
                     lineNumber: 19,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_card.Button, {
                     onClick: ()=>{
                         onBackClick(null);
                     },
