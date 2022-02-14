@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card'
+import {Card, Button} from 'react-bootstrap/Card'
 
 export class MovieView extends React.Component {
 
@@ -21,7 +21,7 @@ componentDidMount(){
             <Card.Text>{movie.Description}</Card.Text>
             <Card.Subtitle>{movie.Director} </Card.Subtitle>
           </Card.Body>
-        <button onClick={()=> {onBackClick(null);}}>Back</button>
+        <Button onClick={()=> {onBackClick(null);}}>Back</Button>
     </Card>
     );
   }
