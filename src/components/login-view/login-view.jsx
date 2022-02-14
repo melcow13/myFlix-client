@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Form, Button, Card, CardGroup, Container, Col, Row} from 'react-bootstrap';
 
+import axios from 'axios';
 
 export function LoginView(props){
     const [ username, setUsername ] = useState('');
@@ -8,9 +9,19 @@ export function LoginView(props){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password);
-        props.onLoggedIn(username);
-      };
+        /* Send a request to the server for authentication */
+        axios.post('https://myflixerupper.herokuapp.com/login', {
+          Username: username,
+          Password: password
+        })
+        .then(response => {
+          const data = response.data;
+          props.onLoggedIn(data);
+        })
+        .catch(e => {
+          console.log('no such user')
+        });
+    };
 
     return(
     <Container>
