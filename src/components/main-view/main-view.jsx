@@ -64,6 +64,14 @@ export class MainView extends React.Component {
       this.getMovies(authData.token);
     }
 
+    onLoggedOut() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      this.setState({
+        user: null
+      });
+    }
+
     
 
   render() {
@@ -72,6 +80,9 @@ export class MainView extends React.Component {
     if(!user) return<LoginView on LogggedIn={user=>this.onLoggedIn(user)} />;
 
     if (movies.length === 0) return <div className="main-view"/>;
+    <button onClick={() => { this.onLoggedOut() }}>Logout</button>
+
+
 
     return (
     <div className="main-view">
