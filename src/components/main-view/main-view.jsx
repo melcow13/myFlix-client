@@ -1,13 +1,14 @@
 
 import React from 'react';
 import axios from 'axios';
-import { Container, Col, Row} from 'react-bootstrap'
-
-
+import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
+import {Menubar} from '../navbar/navbar';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { RegistrationView } from '../registration-view/registration-view';
 
+import { Container, Col, Row} from 'react-bootstrap'
 
 export class MainView extends React.Component {
     constructor(){
@@ -21,22 +22,6 @@ export class MainView extends React.Component {
 
         }
     }
-  
-    getMovies(token) {
-      axios.get('https://myflixerupper.herokuapp.com//movies', {
-        headers: { Authorization: `Bearer ${token}`}
-      })
-      .then(response => {
-        // Assign the result to the state
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }
-
     componentDidMount() {
       let accessToken = localStorage.getItem('token');
       if (accessToken !== null) {
@@ -45,12 +30,6 @@ export class MainView extends React.Component {
         });
         this.getMovies(accessToken);
       }
-    }
-      
-    setSelectedMovie(newSelectedMovie) {
-      this.setState({
-        selectedMovie: newSelectedMovie
-      });
     }
 
     onLoggedIn(authData) {
@@ -72,33 +51,73 @@ export class MainView extends React.Component {
       });
     }
 
+    getMovies(token) {
+      axios.get('https://myflixerupper.herokuapp.com/movies', {
+        headers: { Authorization: `Bearer ${token}`}
+      })
+      .then(response => {
+        // Assign the result to the state
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
+    
+
+    
+
     
 
   render() {
-    const { movies, selectedMovie, user} = this.state;
-
-    if(!user) return<LoginView on LogggedIn={user=>this.onLoggedIn(user)} />;
-
-    if (movies.length === 0) return <div className="main-view"/>;
-    <button onClick={() => { this.onLoggedOut() }}>Logout</button>
-
+    const { movies, user} = this.state;
 
 
     return (
-    <div className="main-view">
-    {selectedMovie
-      ? (
-        <Row className="justify-content-md-center">
-          <Col md={8}>
-            <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-          </Col>
-        </Row>
-      )
-      : movies.map(movie => (
-        <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-      ))
-    }
-  </div>
+    <BrowserRouter>
+      <Container>
+      <Menubar user={user} />
+      
+        
+        
+        <Row className="main-view justify-content-md-center">
+        <Routes>
+            <Route exact path="/" element={<LoginView/>} return={()=>{
+              //if there is no user, the LoginView is rendered. if there is a user logged in, the user details are passed as a prop to the login view
+              if (!user) return <Col>
+                <LoginView movies={movies} onLoggedIn={user => this.onLoggedIn(user)}/>
+              </Col>
+              //before the movies have been laoded
+              if (movies.length===0) return <div className="main-view" />;
+              
+              return movies.map(m=>(
+                <Col md={3} key={m._id}>
+                  <MovieCard movie={m} />
+                </Col>
+              ))
+            }}/>        
+
+
+            <Route path="/movies/:ID" element={<MovieView/>} render ={({match, history})=>{
+              return <Col md={8}>
+                <MovieView movie={movies.find(m=>m._id === match.params.movieID)} 
+                onBackClick={() => history.goBack()}/>
+              </Col>
+            }} />
+
+            <Route path="/register" element={<RegistrationView/>} render={()=>{
+              if (user) return <Redirect to="/" />
+              return <Col lg={8} md={8}>
+                <RegistrationView />
+              </Col>
+            }} />
+      </Routes>
+    </Row>  
+    </Container>
+  </BrowserRouter> 
+  
     );
   }
 }
