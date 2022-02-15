@@ -26,9 +26,6 @@ export function UpdateUser (handleSubmit, handleUpdate) {
         <button variant='primary' type='submit'>
             Update
         </button>
-
-
-
        </form>
 
     )
