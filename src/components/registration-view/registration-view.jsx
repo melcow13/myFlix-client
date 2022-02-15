@@ -80,29 +80,34 @@ export function RegistrationView(props) {
                 <Form>
                     <h3>Sign Up</h3>
                     <p></p>
+                
                     <Form.Group controlId="formName" className="reg-form-inputs">
                     <Form.Label>Name</Form.Label>
                         <Form.Control type="text" value={name} onChange={e=>setName(e.target.value)}/>
                         {values.nameErr && <p>{values.nameErr} </p> }
                     </Form.Group>
+
                     <Form.Group controlid="formUsername" className="reg-form-inputs">
                     <Form.Label>Username</Form.Label>
                         <Form.Control type="text" value={username} onChange={e=>setUsername(e.target.value)}/>
                         {values.usernameErr && <p>{values.usernameErr} </p> }
                     </Form.Group>
+
                     <Form.Group controlId="formPassword" className="reg-form-inputs">
-                    <Form.Label>Password: </Form.Label> 
-                        <input type="password" value={password} onChange ={e=>setPassword(e.target.value)}/>
+                    <Form.Label>Password</Form.Label> 
+                        <Form.Control type="password" value={password} onChange ={e=>setPassword(e.target.value)}/>
                         {values.passwordErr && <p>{values.passwordErr} </p> }
                     </Form.Group>
+
                     <Form.Group controlId="formEmail" className="reg-form-inputs">
-                    <Form.Label>Email: </Form.Label> 
-                        <Form.Control type="email" value={email} onCHange={e=>setEmail(e.target.value)}/>
+                    <Form.Label>Email</Form.Label> 
+                        <Form.Control type="email" value={email} onChange={e=>setEmail(e.target.value)}/>
                         {values.emailErr && <p>{values.emailErr} </p> } 
                     </Form.Group>
+
                     <Form.Group controlId="formBirthday" className="reg-form-inputs">
                     <Form.Label>Birthday</Form.Label>
-                        <input type="date" value={birthday} onChang={e=>setBirthday(e.target.value)}/>
+                        <Form.Control type="date" value={birthday} onChang={e=>setBirthday(e.target.value)}/>
                     </Form.Group>
                     <Button type="submit" onClick={handleSubmit}>Submit</Button>
                     <p>Already registered <Link to={'/'}>sign in</Link>here </p>
