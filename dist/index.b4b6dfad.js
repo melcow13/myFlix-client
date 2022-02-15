@@ -24759,7 +24759,7 @@ function LoginView(props) {
                                     },
                                     children: [
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
-                                            controlid: "formUsername",
+                                            controlId: "formUsername",
                                             children: [
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Label, {
                                                     children: "Username:"
@@ -24771,6 +24771,7 @@ function LoginView(props) {
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
                                                     type: "text",
                                                     value: username,
+                                                    placeholder: "Enter username",
                                                     onChange: (e)=>setUsername(e.target.value)
                                                 }, void 0, false, {
                                                     fileName: "src/components/login-view/login-view.jsx",
@@ -24784,12 +24785,13 @@ function LoginView(props) {
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
-                                            controid: "formPassword",
+                                            controlId: "formPassword",
                                             children: [
                                                 "Password:",
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
                                                     type: "password",
                                                     value: password,
+                                                    placeholder: "Password",
                                                     onChange: (e)=>setPassword(e.target.value)
                                                 }, void 0, false, {
                                                     fileName: "src/components/login-view/login-view.jsx",
@@ -24859,7 +24861,7 @@ function LoginView(props) {
         columnNumber: 5
     }, this));
 }
-_s(LoginView, "pl0vc/B/d1vdKvuzc+X2CdmhqPw=");
+_s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");
 _c = LoginView;
 var _c;
 $RefreshReg$(_c, "LoginView");
