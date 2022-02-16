@@ -23071,7 +23071,7 @@ class MainView extends _reactDefault.default.Component {
                                     }
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 100,
+                                    lineNumber: 97,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23091,7 +23091,7 @@ class MainView extends _reactDefault.default.Component {
                                     }
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 107,
+                                    lineNumber: 103,
                                     columnNumber: 13
                                 }, this)
                             ]
