@@ -79,9 +79,6 @@ export class MainView extends React.Component {
     <BrowserRouter>
       <Container>
       <Menubar user={user} />
-      
-        
-        
         <Row className="main-view justify-content-md-center">
         <Routes>
             <Route exact path="/" element={<LoginView/>} render={()=>{
@@ -114,7 +111,7 @@ export class MainView extends React.Component {
               </Col>
             }} />
       </Routes>
-    </Row>  
+      </Row>  
     </Container>
   </BrowserRouter> 
   
