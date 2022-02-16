@@ -84,7 +84,7 @@ export class MainView extends React.Component {
         
         <Row className="main-view justify-content-md-center">
         <Routes>
-            <Route exact path="/" element={<LoginView/>} return={()=>{
+            <Route exact path="/" element={<LoginView/>} render={()=>{
               //if there is no user, the LoginView is rendered. if there is a user logged in, the user details are passed as a prop to the login view
               if (!user) return <Col>
                 <LoginView movies={movies} onLoggedIn={user => this.onLoggedIn(user)}/>

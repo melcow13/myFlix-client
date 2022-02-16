@@ -23030,7 +23030,7 @@ class MainView extends _reactDefault.default.Component {
                                     path: "/",
                                     element: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
                                     }, void 0, false, void 0, void 0),
-                                    return: ()=>{
+                                    render: ()=>{
                                         //if there is no user, the LoginView is rendered. if there is a user logged in, the user details are passed as a prop to the login view
                                         if (!user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
