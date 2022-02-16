@@ -26369,7 +26369,7 @@ var _reactBootstrap = require("react-bootstrap");
 function Menubar({ user  }) {
     const onLoggedOut = ()=>{
         localStorage.clear();
-        window.open("/", "_self");
+        window.open('/', '_self');
     };
     const isAuth = ()=>{
         if (typeof window == "undefined") return false;
@@ -26390,14 +26390,14 @@ function Menubar({ user  }) {
                     children: "MyFlixerupper"
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 23,
+                    lineNumber: 24,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Toggle, {
                     "aria-controls": "responsive-navbar-nav"
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 26,
+                    lineNumber: 27,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Collapse, {
@@ -26407,59 +26407,67 @@ function Menubar({ user  }) {
                         children: [
                             isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
                                 href: `/users/${user}`,
-                                children: user
+                                children: "Profile"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 30,
+                                lineNumber: 31,
+                                columnNumber: 33
+                            }, this),
+                            isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
+                                href: "/",
+                                children: "Home"
+                            }, void 0, false, {
+                                fileName: "src/components/navbar/navbar.jsx",
+                                lineNumber: 36,
                                 columnNumber: 33
                             }, this),
                             isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                                 variant: "link",
                                 onClick: ()=>{
-                                    this.onLoggedOut();
+                                    onLoggedOut();
                                 },
                                 children: "Logout"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 35,
+                                lineNumber: 42,
                                 columnNumber: 33
                             }, this),
-                            isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
+                            !isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
                                 href: "/",
                                 children: "Sign-in"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 40,
+                                lineNumber: 47,
                                 columnNumber: 33
                             }, this),
-                            isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
+                            !isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
                                 href: "/register",
                                 children: "Sign-up"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 45,
+                                lineNumber: 52,
                                 columnNumber: 33
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 28,
+                        lineNumber: 29,
                         columnNumber: 25
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 27,
+                    lineNumber: 28,
                     columnNumber: 21
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/navbar/navbar.jsx",
-            lineNumber: 22,
+            lineNumber: 23,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "src/components/navbar/navbar.jsx",
-        lineNumber: 21,
+        lineNumber: 22,
         columnNumber: 9
     }, this));
 }

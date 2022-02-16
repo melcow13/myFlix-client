@@ -1,15 +1,16 @@
 import React from 'react';
 import {Navbar, Container, Nav, Button} from 'react-bootstrap';
 export function Menubar({user}) {
+
     const onLoggedOut = () => {
         localStorage.clear();
-        window.open("/", "_self");
-    }
+        window.open('/', '_self');
+    };
 
     const isAuth = () => {
-        if(typeof window == "undefined") {
+        if (typeof window == "undefined") {
             return false;
-        } 
+        }
         if (localStorage.getItem("token")) {
             return localStorage.getItem("token");
         } else {
@@ -28,20 +29,26 @@ export function Menubar({user}) {
                         <Nav className="ml-auto">
                             {isAuth() && (
                                 <Nav.Link href={`/users/${user}`}>
-                                    {user}
+                                    Profile 
                                 </Nav.Link>
                             )}
+                            {isAuth() && (
+                                <Nav.Link href="/">
+                                    Home
+                                </Nav.Link>
+                            )}
+                        
                             {isAuth()&&(
                                 <Button variant ="link" onClick={()=> {
-                                    this.onLoggedOut()
+                                    onLoggedOut()
                                 }}>Logout</Button>
                             )}
-                            {isAuth() && (
+                            {!isAuth() && (
                                 <Nav.Link href="/">
                                     Sign-in
                                 </Nav.Link>
                             )}
-                            {isAuth() && (
+                            {!isAuth() && (
                                 <Nav.Link href="/register">
                                     Sign-up
                                 </Nav.Link>
