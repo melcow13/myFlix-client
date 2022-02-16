@@ -23025,28 +23025,10 @@ class MainView extends _reactDefault.default.Component {
                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Routes, {
                             children: [
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
-                                    exact: true,
                                     path: "/",
-                                    render: ()=>{
-                                        //if there is no user, the LoginView is rendered. if there is a user logged in, the user details are passed as a prop to the login view
-                                        if (!user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
-                                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
-                                                movies: movies,
-                                                onLoggedIn: (user)=>this.onLoggedIn(user)
-                                            }, void 0, false, void 0, void 0)
-                                        }, void 0, false, void 0, void 0));
-                                        //before the movies have been laoded
-                                        if (movies.length === 0) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                            className: "main-view"
-                                        }, void 0, false, void 0, void 0));
-                                        return movies.map((m)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
-                                                md: 3,
-                                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
-                                                    movie: m
-                                                }, void 0, false, void 0, void 0)
-                                            }, m._id, false, void 0, void 0)
-                                        );
-                                    }
+                                    element: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
+                                        onLoggedIn: (user)=>this.onLoggedIn(user)
+                                    }, void 0, false, void 0, void 0)
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
                                     lineNumber: 82,
@@ -23066,7 +23048,7 @@ class MainView extends _reactDefault.default.Component {
                                     }
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 95,
+                                    lineNumber: 85,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23084,7 +23066,7 @@ class MainView extends _reactDefault.default.Component {
                                     }
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 101,
+                                    lineNumber: 91,
                                     columnNumber: 13
                                 }, this)
                             ]

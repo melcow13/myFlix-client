@@ -79,19 +79,9 @@ export class MainView extends React.Component {
       <Menubar user={user} />
         <Row className="main-view justify-content-md-center">
         <Routes>
-            <Route exact path="/" render={()=>{
-              //if there is no user, the LoginView is rendered. if there is a user logged in, the user details are passed as a prop to the login view
-              if (!user) return <Col>
-                <LoginView movies={movies} onLoggedIn={user => this.onLoggedIn(user)}/>
-              </Col>
-              //before the movies have been laoded
-              if (movies.length===0) return <div className="main-view" />;
-              return movies.map(m=>(
-                <Col md={3} key={m._id}>
-                  <MovieCard movie={m} />
-                </Col>
-              ))
-            }} /> 
+            <Route path="/" element= {<LoginView onLoggedIn={user => this.onLoggedIn(user)}/>} />
+          
+          
             <Route path="/movies/:ID" render ={({match, history})=>{
               return <Col md={8}>
                 <MovieView movie={movies.find(m=>m._id === match.params.movieID)} 
