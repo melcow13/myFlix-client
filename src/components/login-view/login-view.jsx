@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import {Form, Button, Card, CardGroup, Container, Col, Row} from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
+import './login-view.scss';
 import axios from 'axios';
 
 export function LoginView(props){
@@ -71,7 +73,9 @@ export function LoginView(props){
                                 {passwordErr && <p>{passwordErr}</p>}
                             </Form.Group>
                             <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
-                            <Button>Register</Button>
+                            <Link to={`/register`} className="float-right">
+                            <Button variant="info" style={{ color: "white" }} type="button">New here? Click here to Register!</Button>
+                            </Link>
                         </Form> 
                     </Card>
                 </CardGroup>
@@ -82,3 +86,11 @@ export function LoginView(props){
         
     );
 }
+
+LoginView.propTypes = {
+    user: PropTypes.shape({
+      Username: PropTypes.string.isRequired,
+      Password: PropTypes.string.isRequired,
+    }),
+    onLoggedIn: PropTypes.func.isRequired,
+  };
