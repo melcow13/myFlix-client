@@ -22966,7 +22966,7 @@ class MainView extends _reactDefault.default.Component {
         super();
         this.state = {
             movies: [],
-            user: null
+            user: ""
         };
     }
     componentDidMount() {
@@ -23027,8 +23027,6 @@ class MainView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
                                     exact: true,
                                     path: "/",
-                                    element: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
-                                    }, void 0, false, void 0, void 0),
                                     render: ()=>{
                                         //if there is no user, the LoginView is rendered. if there is a user logged in, the user details are passed as a prop to the login view
                                         if (!user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
@@ -23056,8 +23054,6 @@ class MainView extends _reactDefault.default.Component {
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
                                     path: "/movies/:ID",
-                                    element: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieView.MovieView, {
-                                    }, void 0, false, void 0, void 0),
                                     render: ({ match , history  })=>{
                                         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                                             md: 8,
@@ -23075,8 +23071,6 @@ class MainView extends _reactDefault.default.Component {
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
                                     path: "/register",
-                                    element: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_registrationView.RegistrationView, {
-                                    }, void 0, false, void 0, void 0),
                                     render: ()=>{
                                         if (user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Redirect, {
                                             to: "/"

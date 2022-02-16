@@ -16,7 +16,7 @@ export class MainView extends React.Component {
         this.state = {
           movies: [],
 
-          user: null
+          user: ""
 
         }
     }
@@ -79,7 +79,7 @@ export class MainView extends React.Component {
       <Menubar user={user} />
         <Row className="main-view justify-content-md-center">
         <Routes>
-            <Route exact path="/" element={<LoginView/>} render={()=>{
+            <Route exact path="/" render={()=>{
               //if there is no user, the LoginView is rendered. if there is a user logged in, the user details are passed as a prop to the login view
               if (!user) return <Col>
                 <LoginView movies={movies} onLoggedIn={user => this.onLoggedIn(user)}/>
@@ -92,13 +92,13 @@ export class MainView extends React.Component {
                 </Col>
               ))
             }} /> 
-            <Route path="/movies/:ID" element={<MovieView/>} render ={({match, history})=>{
+            <Route path="/movies/:ID" render ={({match, history})=>{
               return <Col md={8}>
                 <MovieView movie={movies.find(m=>m._id === match.params.movieID)} 
                 onBackClick={() => history.goBack()}/>
               </Col>
             }} />
-            <Route path="/register" element={<RegistrationView/>} render={()=>{
+            <Route path="/register" render={()=>{
               if (user) return <Redirect to="/" />
               return <Col lg={8} md={8}>
                 <RegistrationView />
