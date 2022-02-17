@@ -4,7 +4,7 @@ export function Menubar({user}) {
 
     const onLoggedOut = () => {
         localStorage.clear();
-        window.open('/', '_self');
+        window.open('/login', '_self');
     };
 
     const isAuth = () => {
@@ -33,8 +33,8 @@ export function Menubar({user}) {
                                 </Nav.Link>
                             )}
                             {isAuth() && (
-                                <Nav.Link href="/movies">
-                                    Movies
+                                <Nav.Link href="/">
+                                    Home
                                 </Nav.Link>
                             )}
                         

@@ -17,7 +17,7 @@ export class MainView extends React.Component {
         this.state = {
           movies: [],
 
-          user: ""
+          user: null
 
         }
     }
@@ -73,10 +73,9 @@ export class MainView extends React.Component {
       <Menubar user={user} />
         <Row className="main-view justify-content-md-center">
         <Routes>
-          <Route path="/" element={<Navigate to ={user ? "/movies" : "/login"}/>}/>
           <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)}/>}/> 
                 
-          <Route path="/movies" element={movies.map(m => (
+          <Route path="/" element={movies.map(m => (
                     <MovieCard user={user} movie={m} />
                 )) }/>    
             

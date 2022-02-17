@@ -8,6 +8,7 @@ import axios from 'axios';
 export function LoginView(props){
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [user, setUser] = useState()
 
     // Declare hook for each input
     const [ usernameErr, setUsernameErr ] = useState('');
@@ -48,7 +49,7 @@ export function LoginView(props){
           .then(response =>{
               const data = response.data;
               props.onLoggedIn(data);
-              navigate("/movies", { replace: true });         
+              navigate("/", { replace: true });         
           })
           .catch(e => {
             console.log('no such user')
