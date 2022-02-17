@@ -44,7 +44,7 @@ export function Menubar({user}) {
                                 }}>Logout</Button>
                             )}
                             {!isAuth() && (
-                                <Nav.Link href="/">
+                                <Nav.Link href="/login">
                                     Sign-in
                                 </Nav.Link>
                             )}
