@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Form, Button, Card, CardGroup, Container, Col, Row} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './login-view.scss';
 import axios from 'axios';
 
@@ -33,6 +33,9 @@ export function LoginView(props){
 
     return isReq;
     }
+
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const isReq = validate();
@@ -45,6 +48,7 @@ export function LoginView(props){
           .then(response =>{
               const data = response.data;
               props.onLoggedIn(data);
+              navigate("/movies", { replace: true });         
           })
           .catch(e => {
             console.log('no such user')

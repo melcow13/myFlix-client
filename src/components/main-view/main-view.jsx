@@ -1,7 +1,7 @@
 
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import {Menubar} from '../navbar/navbar';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -56,6 +56,7 @@ export class MainView extends React.Component {
       });
     }
     
+    
 
     
 
@@ -63,6 +64,7 @@ export class MainView extends React.Component {
 
   render() {
     const { movies, user} = this.state;
+  
 
 
     return (
@@ -71,9 +73,10 @@ export class MainView extends React.Component {
       <Menubar user={user} />
         <Row className="main-view justify-content-md-center">
         <Routes>
-            <Route path="/" element= {<LoginView onLoggedIn={user => this.onLoggedIn(user)}/>} />
-          
-          
+            <Route path="/" element= {<LoginView onLoggedIn={user => this.onLoggedIn(user)}/> }/>
+
+            <Route path="/movies" element= {<MovieCard/>} />
+
             <Route path="/movies/:ID" render ={({match, history})=>{
               return <Col md={8}>
                 <MovieView movie={movies.find(m=>m._id === match.params.movieID)} 
