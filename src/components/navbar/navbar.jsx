@@ -34,7 +34,7 @@ export function Menubar({user}) {
                             )}
                             {isAuth() && (
                                 <Nav.Link href="/movies">
-                                    Home
+                                    Movies
                                 </Nav.Link>
                             )}
                         

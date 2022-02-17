@@ -1,5 +1,5 @@
 
-import React from 'react';
+import {React, useEffect, useState}from 'react';
 import axios from 'axios';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import {Menubar} from '../navbar/navbar';
@@ -9,7 +9,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { ProfileView } from '../profile-view/profile-view';
 
-import { Container, Col, Row} from 'react-bootstrap'
+import { Container, Col, Row, Nav} from 'react-bootstrap'
 
 export class MainView extends React.Component {
     constructor(){
@@ -57,15 +57,15 @@ export class MainView extends React.Component {
       });
     }
     
-    movieList() {
-
-    }
+    
     
 
     
 
   render() {
     const { movies, user} = this.state;
+    
+     
   
 
 
@@ -75,7 +75,8 @@ export class MainView extends React.Component {
       <Menubar user={user} />
         <Row className="main-view justify-content-md-center">
         <Routes>
-          <Route path="/" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)}/>}/> 
+          <Route path="/" element={<Navigate to ={user ? "/movies" : "/login"}/>} />
+          <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)}/>}/> 
                 
           <Route path="/movies" element={movies.map(m => (
                     <MovieCard user={user} movie={m} />
