@@ -1,5 +1,5 @@
 
-import {React, useEffect, useState}from 'react';
+import React from 'react';
 import axios from 'axios';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import {Menubar} from '../navbar/navbar';
@@ -57,15 +57,13 @@ export class MainView extends React.Component {
       });
     }
     
-    
+   
     
 
     
 
   render() {
     const { movies, user} = this.state;
-    
-     
   
 
 
@@ -75,7 +73,7 @@ export class MainView extends React.Component {
       <Menubar user={user} />
         <Row className="main-view justify-content-md-center">
         <Routes>
-          <Route path="/" element={<Navigate to ={user ? "/movies" : "/login"}/>} />
+          <Route path="/" element={<Navigate to ={user ? "/movies" : "/login"}/>}/>
           <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)}/>}/> 
                 
           <Route path="/movies" element={movies.map(m => (
