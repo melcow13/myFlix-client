@@ -33,7 +33,7 @@ export function Menubar({user}) {
                                 </Nav.Link>
                             )}
                             {isAuth() && (
-                                <Nav.Link href="/">
+                                <Nav.Link href="/movies">
                                     Home
                                 </Nav.Link>
                             )}
