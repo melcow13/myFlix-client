@@ -1,10 +1,19 @@
 import React from 'react'
+import {Card, Row, Col, Container, Button} from 'react-bootstrap'
 
-export function UserInfo ({name, email}) {
+function UserInfo ({name, email}) {
     return (
-        <>
-                <p>User:{name} </p>
-                <p>Email:{email}</p>
-        </>
+        <Container>
+            <Row>
+                <Col>
+                    <Card>
+                        <Card.Title> User:{name}</Card.Title>
+                        <Card.Text> Email:{email}</Card.Text>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
     )
 }
+
+export default UserInfo
