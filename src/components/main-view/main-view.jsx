@@ -130,12 +130,9 @@ export class MainView extends React.Component {
             }
             } />
 
-            <Route path="/register" render={() => {
-              if (user) return <Redirect to="/" />
-              return <Col lg={8} md={8}>
-                <RegistrationView />
-              </Col> 
-            }} />
+            <Route path="/register" element={<RegistrationView />} />
+                
+             
 
             <Route  path="/users/:username" element={<ProfileView
                user = {this.state.user}

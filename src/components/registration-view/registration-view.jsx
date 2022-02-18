@@ -19,7 +19,7 @@ export function RegistrationView(props) {
     });
     const validate=() => {
         let isReq = true;
-        if(name) {
+        if(!name) {
             setValues({...values, nameErr: 'Name is required'});
             isReq = false;
         }
@@ -63,7 +63,7 @@ export function RegistrationView(props) {
             const data = response.data;
             console.log(data);
             alert('Registration successful, please login!');
-            window.open('/','_self');
+            window.open('/login','_self');
             //the second argument '_self' is necessary so that
             //the page will open in the current tab
         })
@@ -124,4 +124,5 @@ RegistrationView.propTypes={
         Password: PropTypes.string.isRequired,
         Email: PropTypes.string.isRequired
     }),
+    
 };

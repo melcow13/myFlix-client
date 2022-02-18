@@ -23128,17 +23128,8 @@ class MainView extends _reactDefault.default.Component {
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
                                     path: "/register",
-                                    render: ()=>{
-                                        if (user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(Redirect, {
-                                            to: "/"
-                                        }, void 0, false, void 0, void 0));
-                                        return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
-                                            lg: 8,
-                                            md: 8,
-                                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_registrationView.RegistrationView, {
-                                            }, void 0, false, void 0, void 0)
-                                        }, void 0, false, void 0, void 0));
-                                    }
+                                    element: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_registrationView.RegistrationView, {
+                                    }, void 0, false, void 0, void 0)
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
                                     lineNumber: 133,
@@ -23153,7 +23144,7 @@ class MainView extends _reactDefault.default.Component {
                                     }, void 0, false, void 0, void 0)
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 140,
+                                    lineNumber: 137,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -33570,7 +33561,7 @@ function RegistrationView(props) {
     });
     const validate = ()=>{
         let isReq = true;
-        if (name) {
+        if (!name) {
             setValues({
                 ...values,
                 nameErr: 'Name is required'
@@ -33625,7 +33616,7 @@ function RegistrationView(props) {
             const data = response.data;
             console.log(data);
             alert('Registration successful, please login!');
-            window.open('/', '_self');
+            window.open('/login', '_self');
         //the second argument '_self' is necessary so that
         //the page will open in the current tab
         }).catch((e)=>{
