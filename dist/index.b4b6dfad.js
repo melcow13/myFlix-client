@@ -23046,7 +23046,7 @@ class MainView extends _reactDefault.default.Component {
                                     element: movies.map((m)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                                             user: user1,
                                             movie: m
-                                        }, void 0, false, void 0, void 0)
+                                        }, m._id, false, void 0, void 0)
                                     )
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
