@@ -1,6 +1,6 @@
 import React from 'react';
 import {Form, Card, Container, Col, Row, Button} from 'react-bootstrap';
-import {BrowserRouter, Route, Routes, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import UserInfo from '../profile-view/user-info'
 import { FavoriteMovies } from './favorite-movies';

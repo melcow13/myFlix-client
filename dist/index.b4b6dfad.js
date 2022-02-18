@@ -34162,7 +34162,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
-function UpdateUser() {
+function UpdateUser(props) {
     _s();
     const [name, setName] = _react.useState('');
     const [username, setUsername] = _react.useState('');
@@ -34452,7 +34452,7 @@ UpdateUser.propTypes = {
         Email: _propTypesDefault.default.string.isRequired
     })
 };
-exports.default = updateUser;
+exports.default = UpdateUser;
 var _c;
 $RefreshReg$(_c, "UpdateUser");
 

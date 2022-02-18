@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios'
 import {Link} from 'react-router-dom';
 
-function UpdateUser() {
+function UpdateUser(props) {
     const [ name, setName] = useState('');
     const [ username, setUsername ] = useState('');
     const [ password, setPassword] = useState('');
@@ -108,4 +108,4 @@ UpdateUser.propTypes={
     
 };
 
-export default updateUser
+export default UpdateUser
