@@ -77,7 +77,9 @@ export class MainView extends React.Component {
           <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)}/>}/> 
                 
           <Route path="/" element={movies.map(m => (
+                    <Col md={4}>
                     <MovieCard user={user} movie={m} key={m._id} />
+                    </Col>
                 )) }/>    
             
             
