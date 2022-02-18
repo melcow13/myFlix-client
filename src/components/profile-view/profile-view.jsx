@@ -53,13 +53,16 @@ export class ProfileView extends React.Component{
                     console.log(error);
                 });
         };
+
+        
 render () {
 
-    const { Name, Email, } = this.state;
+    const { Username, Name, Email, } = this.state;
     
     return (
     <div>
         <UserInfo name={Name} email={Email}  />
+        <UpdateUser user={this.state.user}/>
     </div>
     )
  }

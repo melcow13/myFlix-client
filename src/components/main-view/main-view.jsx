@@ -138,7 +138,8 @@ export class MainView extends React.Component {
             <Route  path="/users/:username" element={<ProfileView
                user = {this.state.user}
                movies = {movies}
-                onBackClick={() => history.goBack()} />}
+                onBackClick={() => history.goBack()} 
+                />}
               />
       </Routes>
       </Row>  
