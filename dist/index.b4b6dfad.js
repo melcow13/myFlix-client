@@ -33913,57 +33913,67 @@ var _userInfo = require("../profile-view/user-info");
 var _userInfoDefault = parcelHelpers.interopDefault(_userInfo);
 var _favoriteMovies = require("./favorite-movies");
 var _updateUser = require("./update-user");
-var _s = $RefreshSig$();
-function ProfileView({ movies , onUpdatedUserInfo  }) {
-    _s();
-    const [user, setUser] = useState({
-    });
-    const favoriteMovieList = movies.filter((movies)=>{
-    });
-    const getUser = ()=>{
+class ProfileView extends _reactDefault.default.Component {
+    constructor(){
+        super();
+        this.state = {
+            Name: null,
+            Username: null,
+            Password: null,
+            Email: null,
+            Birthday: null,
+            FavoriteMovies: []
+        };
+    }
+    componentDidMount() {
+        const accessToken = localStorage.getItem('token');
+        this.getUser(accessToken);
+    }
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
+        window.open('/', '_self');
+    }
+    getUser = (token)=>{
+        const Username = localStorage.getItem('user');
+        _axiosDefault.default.get(`https://myflixerupper.herokuapp.com/users/${Username}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            this.setState({
+                Name: response.data.Name,
+                Username: response.data.Username,
+                Password: response.data.Password,
+                Email: response.data.Email,
+                Birthday: response.data.Birthday,
+                FavoriteMovies: response.data.FavoriteMovies
+            });
+        }).catch(function(error) {
+            console.log(error);
+        });
     };
-    const removeFav = (id)=>{
-    };
-    const handleUpdate = (e)=>{
-    };
-    useEffect(()=>{
-    }, []);
-    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-        children: [
-            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_userInfoDefault.default, {
-                name: user.Username,
-                email: user.Email
+    render() {
+        const { Name , Email ,  } = this.state;
+        return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_userInfoDefault.default, {
+                name: Name,
+                email: Email
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 36,
-                columnNumber: 15
-            }, this),
-            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_favoriteMovies.FavoriteMovies, {
-                favoriteMovieList: favoriteMovieList
-            }, void 0, false, {
-                fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 37,
-                columnNumber: 15
-            }, this),
-            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_updateUser.UpdateUser, {
-                handleUpdate: handleUpdate,
-                handleSubmit: handleSubmit
-            }, void 0, false, {
-                fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 38,
-                columnNumber: 15
+                lineNumber: 62,
+                columnNumber: 9
             }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/profile-view/profile-view.jsx",
-        lineNumber: 35,
-        columnNumber: 11
-    }, this));
+        }, void 0, false, {
+            fileName: "src/components/profile-view/profile-view.jsx",
+            lineNumber: 61,
+            columnNumber: 5
+        }, this));
+    }
 }
-_s(ProfileView, "rId1QQUUNG39tBYhVVcxci5zNOk=");
-_c = ProfileView;
-var _c;
-$RefreshReg$(_c, "ProfileView");
 
   $parcel$ReactRefreshHelpers$3c12.postlude(module);
 } finally {
@@ -34072,7 +34082,7 @@ function FavoriteMovies(favoriteMovieList) {
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                             variant: "secondary",
-                            onClick: ()=>removeFav(movie._id)
+                            onClick: ()=>removeFav(movies._id)
                             ,
                             children: "Remove From List"
                         }, void 0, false, {

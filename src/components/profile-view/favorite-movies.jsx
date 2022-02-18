@@ -12,7 +12,7 @@ export function FavoriteMovies (favoriteMovieList) {
                         <Link to={`/movies/${movies._id}`}>
                             <h4>Movie Title</h4>
                         </Link>
-                        <Button variant="secondary" onClick={()=> removeFav(movie._id)}>Remove From List</Button>
+                        <Button variant="secondary" onClick={()=> removeFav(movies._id)}>Remove From List</Button>
                     </div>
                 )
             })

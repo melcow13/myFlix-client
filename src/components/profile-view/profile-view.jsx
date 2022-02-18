@@ -1,43 +1,66 @@
 import React from 'react';
 import {Form, Card, Container, Col, Row, Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {BrowserRouter, Route, Routes, Link} from 'react-router-dom';
 import axios from 'axios';
 import UserInfo from '../profile-view/user-info'
 import { FavoriteMovies } from './favorite-movies';
 import { UpdateUser } from './update-user';
 
-export function ProfileView ({ movies, onUpdatedUserInfo}) {
-    const [user, setUser] = useState({
-
-    })
-
-    const favoriteMovieList = movies.filter((movies)=>{
-
-    })
+export class ProfileView extends React.Component{
+    constructor() {
+        super();
+            this.state = {
+                Name: null,
+                Username: null,
+                Password: null,
+                Email: null,
+                Birthday: null,
+                FavoriteMovies: [],
+            };
+        }
     
-    const getUser = () => {
-
-    }
-
-    const removeFav= (id) => {
-
-    }
+        componentDidMount() {
+            const accessToken = localStorage.getItem('token');
+            this.getUser(accessToken);
+        }
     
-    const handleUpdate = (e) => {
-        
-    };
+        onLoggedOut() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            this.setState({
+                user: null,
+            });
+            window.open('/', '_self');
+        }
     
-    useEffect(()=>{
+        getUser = (token) => {
+            const Username = localStorage.getItem('user');
+            axios
+                .get(`https://myflixerupper.herokuapp.com/users/${Username}`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                })
+                .then((response) => {
+                    this.setState({
+                        Name: response.data.Name,
+                        Username: response.data.Username,
+                        Password: response.data.Password,
+                        Email: response.data.Email,
+                        Birthday: response.data.Birthday,
+                        FavoriteMovies: response.data.FavoriteMovies,
+                    });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        };
+render () {
 
-    },[])
-
+    const { Name, Email, } = this.state;
+    
     return (
-          <div>
-              <UserInfo name={user.Username} email={user.Email}/>
-              <FavoriteMovies favoriteMovieList = {favoriteMovieList} />
-              <UpdateUser handleUpdate={handleUpdate} handleSubmit={handleSubmit} />
-                
-        </div>
-
+    <div>
+        <UserInfo name={Name} email={Email}  />
+    </div>
     )
  }
+}
