@@ -73,6 +73,7 @@ export class MainView extends React.Component {
       <Menubar user={user} />
         <Row className="main-view justify-content-md-center">
         <Routes>
+          <Route exact path="*" element={user? <LoginView onLoggedIn={user => this.onLoggedIn(user)}/> : <Navigate to ="/"/>} />
           <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)}/>}/> 
                 
           <Route path="/" element={movies.map(m => (
@@ -92,8 +93,6 @@ export class MainView extends React.Component {
                 <MovieView movie={movies.find(m => m._id === match.params.movieId)} user={user} onBackClick={() => history.goBack()} />
               </Col>
             }} />
-            
-            
 
             <Route path="/directors/:name" render={({ match, history }) => {
 
