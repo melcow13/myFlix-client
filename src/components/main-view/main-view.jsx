@@ -52,7 +52,7 @@ export class MainView extends React.Component {
               <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)} />} />
               <Route element={<ProtectedRoutes user={localStorage.getItem('user')} />}>
                 <Route path="/" element={<Movies />} />
-                <Route path="/movies/:Title" element={<MovieView  />} />
+                <Route path="/movies/:id" element={<MovieView  />} />
                 <Route path="/register" element={<RegistrationView />} />
                 <Route path="/users/:username" element={<ProfileView
                   user={this.state.user}

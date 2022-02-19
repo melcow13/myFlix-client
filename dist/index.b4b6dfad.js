@@ -23031,7 +23031,7 @@ class MainView extends _reactDefault.default.Component {
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
-                                            path: "/movies/:Title",
+                                            path: "/movies/:id",
                                             element: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieViewDefault.default, {
                                             }, void 0, false, void 0, void 0)
                                         }, void 0, false, {
