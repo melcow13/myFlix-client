@@ -1014,6 +1014,7 @@ var _reactRedux = require("react-redux");
 var _reduxDevtoolsExtension = require("redux-devtools-extension");
 var _reducers = require("./reducers/reducers");
 var _reducersDefault = parcelHelpers.interopDefault(_reducers);
+var _reactBootstrap = require("react-bootstrap");
 var _mainView = require("./components/main-view/main-view");
 var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
 // Import statement to indicate that you need to bundle `./index.scss`
@@ -1024,16 +1025,22 @@ class MyFlixApplication extends _reactDefault.default.Component {
     render() {
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRedux.Provider, {
             store: store,
-            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_mainViewDefault.default, {
+            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
+                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_mainViewDefault.default, {
+                }, void 0, false, {
+                    fileName: "src/index.jsx",
+                    lineNumber: 23,
+                    columnNumber: 9
+                }, this)
             }, void 0, false, {
                 fileName: "src/index.jsx",
-                lineNumber: 21,
+                lineNumber: 22,
                 columnNumber: 7
             }, this)
         }, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 20,
-            columnNumber: 5
+            lineNumber: 21,
+            columnNumber: 7
         }, this));
     }
 }
@@ -1047,7 +1054,7 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","redux":"cDNB3","react-redux":"bdVon","redux-devtools-extension":"fOPxo","./reducers/reducers":"dgblV"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","redux":"cDNB3","react-redux":"bdVon","redux-devtools-extension":"fOPxo","./reducers/reducers":"dgblV","react-bootstrap":"3AD9A"}],"iTorj":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-jsx-dev-runtime.development.js');
 
