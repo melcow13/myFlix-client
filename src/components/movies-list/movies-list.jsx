@@ -1,41 +1,36 @@
-import axios from "axios";
-import { useEffect, useState } from "react"
+import React from "react";
+import { connect } from "react-redux";
 import { Col, Row } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
+import VisibilityFilterInput from "../visibility-filter-input/visibility-filter-input";
 
-const Movies = () => {
-    const [movies, setMovies] = useState([]);
 
-    useEffect(() => {
-        getMovies()
-    }, [])
+const mapStateToProps = state => {
+    const {visibilityFilter} = state;
+    return {visibilityFilter};
+};
 
-    const getMovies = () => {
-        axios.get('https://myflixerupper.herokuapp.com/movies', {
-            headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
-        })
-            .then(response => {
-                setMovies(response.data)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+function MoviesList(props) {
+    const { movies, visibilityFilter} = props;
+    let filteredMovies = movies;
+
+    if (visibilityFilter !=='') {
+        filteredMovies = movies.filter(m=>m.TItle.toLowerCase().includes(visibilityFilter.toLowerCase()));
     }
 
-    return (
-        <div>
-            <h2>Movies List</h2>
-            <Row className="main-view justify-content-md-center">
-                {
-                    movies.map(m => (
-                        <Col key={m._id} md={4}>
-                            <MovieCard movie={m} />
-                        </Col>
-                    ))
-                }
-            </Row>
-        </div>
-    )
+    if (!movies) return <div className="main-view" />;
+
+    return <>
+    <Col md={12} style={{margin:'1em'}}>
+        <VisibilityFilterInput visibilityFilter={visibilityFilter} />
+    </Col>
+    {filteredMovies.map(m=>(
+        <Col md={3} key={m._id}>
+            <MovieCard movie={m} />
+        </Col>
+    ))};
+    </>;
 }
 
-export default Movies;
+
+export default connect(mapStateToProps) (MoviesList);
