@@ -9,7 +9,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import ProfileView from '../profile-view/profile-view';
 
 import { Container, Col, Row, Nav } from 'react-bootstrap'
-import Movies from '../movies-list/movies-list';
+import MoviesList from '../movies-list/movies-list';
 import ProtectedRoutes from '../protected-routes/ProtectedRoutes';
 
 // #0
@@ -56,7 +56,7 @@ class MainView extends React.Component {
 
 
   render() {
-    let {movies} = this.props;
+    let { movies } = this.props;
     const { user } = this.state;
     return (
       <BrowserRouter>
@@ -66,7 +66,7 @@ class MainView extends React.Component {
             <Routes>
               <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)} />} />
               <Route element={<ProtectedRoutes user={localStorage.getItem('user')} />}>
-                <Route path="/" element={<Movies />} />
+                <Route path="/" element={<MoviesList movies={movies}/>} />
                 <Route path="/movies/:id" element={<MovieView  />} />
                 <Route path="/register" element={<RegistrationView />} />
                 <Route path="/users/:username" element={<ProfileView
@@ -89,5 +89,3 @@ let mapStateToProps = state =>{
   }
 }
 export default connect (mapStateToProps, {setMovies} ) (MainView);
-
-
