@@ -42692,26 +42692,38 @@ parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES
 );
 parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
 );
+parcelHelpers.export(exports, "SET_USER", ()=>SET_USER
+);
 parcelHelpers.export(exports, "setMovies", ()=>setMovies
 );
 parcelHelpers.export(exports, "setFilter", ()=>setFilter
 );
+parcelHelpers.export(exports, "setUser", ()=>setUser
+);
+var _reactDom = require("react-dom");
 const SET_MOVIES = 'SET_MOVIES';
 const SET_FILTER = 'SET_FILTER';
-function setMovies(value) {
+const SET_USER = 'SET_USER';
+function setMovies(payload) {
     return {
         type: SET_MOVIES,
-        value
+        payload
     };
 }
-function setFilter(value) {
+function setFilter(payload) {
     return {
         type: SET_FILTER,
-        value
+        payload
+    };
+}
+function setUser(payload) {
+    return {
+        type: SET_USER,
+        payload
     };
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bwuIu":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","react-dom":"j6uA9"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -43419,9 +43431,19 @@ function movies(state = [], action) {
             return state;
     }
 }
+function user(state = '', action) {
+    switch(action.type){
+        case _actions.SET_USER:
+            console.log('SET_USER reducer reached');
+            return action.value;
+        default:
+            return state;
+    }
+}
 const moviesApp = _redux.combineReducers({
     visibilityFilter,
-    movies
+    movies,
+    user
 });
 exports.default = moviesApp;
 
