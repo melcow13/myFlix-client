@@ -13,7 +13,7 @@ import MoviesList from '../movies-list/movies-list';
 import ProtectedRoutes from '../protected-routes/ProtectedRoutes';
 
 // #0
-import { setMovies } from '../../actions/actions';
+import { setMovies, setUser } from '../../actions/actions';
 
 class MainView extends React.Component {
   constructor(props) {
@@ -25,11 +25,15 @@ class MainView extends React.Component {
   }
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
-    if (accessToken) {
-      this.setState({
-        user: localStorage.getItem('user')
-      });
+    if (accessToken !== null) {
+      this.props.setUser(localStorage.getItem('user'));
+      // Below code replaced by code above
+      // this.setState({
+      //   // user is the Username string
+      //   user: localStorage.getItem('user'),
+      // });
       this.getMovies(accessToken);
+      this.getUser(accessToken);
     }
   }
 
@@ -45,6 +49,22 @@ class MainView extends React.Component {
     });
   }
 
+  getUser(token) {
+    console.log('get user data');
+    const Username = localStorage.getItem('user');
+    axios.get(`https://myflixerupper.herokuapp.com/users/${Username}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        console.log('user', response.data);
+        // Assign the result to the state
+        this.props.setUser({ user: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -57,8 +77,8 @@ class MainView extends React.Component {
 
 
   render() {
-    let { movies } = this.props;
-    const { user } = this.state;
+    let { movies, user } = this.props;
+    
     return (
       <BrowserRouter>
         <Container>
@@ -86,7 +106,8 @@ class MainView extends React.Component {
 }
 let mapStateToProps = state =>{
   return {
-    movies: state.movies
+    movies: state.movies,
+    user: state.user
   }
 }
-export default connect (mapStateToProps, {setMovies} ) (MainView);
+export default connect (mapStateToProps, {setMovies, setUser} ) (MainView);
