@@ -42100,49 +42100,22 @@ var _updateUser = require("./update-user");
 var _updateUserDefault = parcelHelpers.interopDefault(_updateUser);
 var _favoriteMovies = require("./favorite-movies");
 var _favoriteMoviesDefault = parcelHelpers.interopDefault(_favoriteMovies);
-var _s = $RefreshSig$();
 const ProfileView = (props)=>{
-    _s();
-    const [user, setUser] = _react.useState({
-        Name: "",
-        Username: "",
-        Password: "",
-        Email: "",
-        Birthday: "",
-        FavoriteMovies: []
-    });
-    _react.useEffect(()=>{
-        const accessToken = localStorage.getItem('token');
-        if (accessToken) getUser(accessToken);
-    }, []);
-    const getUser = (token)=>{
-        const Username = localStorage.getItem('user');
-        _axiosDefault.default.get(`https://myflixerupper.herokuapp.com/users/${Username}`, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
-            console.log(response.data);
-            setUser(response.data);
-        }).catch(function(error) {
-            console.log(error);
-        });
-    };
+    const user = props;
     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_updateUserDefault.default, {
             user: user
         }, void 0, false, {
             fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 41,
+            lineNumber: 11,
             columnNumber: 13
         }, undefined)
     }, Math.random().toString(), false, {
         fileName: "src/components/profile-view/profile-view.jsx",
-        lineNumber: 40,
+        lineNumber: 10,
         columnNumber: 9
     }, undefined));
 };
-_s(ProfileView, "3oWrQ7GrkEdcifXkNzQQtwDeoIc=");
 _c = ProfileView;
 exports.default = ProfileView;
 var _c;
