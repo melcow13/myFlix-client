@@ -1,16 +1,19 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
 const MovieView = (props) => {
-  const movie = props.movies.find(m => m._id === ownProps.match.params.id)
+  const movies = props
+  const { id } = useParams();
+  const movie = movies.find((m) => m._id === id)
+  
   
 
   return (
     <div>
       <Card>
+        {movie?.ImagePath && <Card.Img variant="top" src={movie?.ImagePath} />}
         <Card.Body>
           <Card.Title>{movie?.Title}</Card.Title>
           <Card.Text>{movie?.Description}</Card.Text>
@@ -26,7 +29,5 @@ const MovieView = (props) => {
     </div>
   );
 }
-
-
 
 export default MovieView;
