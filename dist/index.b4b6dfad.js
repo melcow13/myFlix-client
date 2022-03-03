@@ -36574,6 +36574,7 @@ function visibilityFilter(state = '', action) {
 function movies(state = [], action) {
     switch(action.type){
         case _actions.SET_MOVIES:
+            console.log('SET_MOVIEreducer reached');
             return action.payload;
         default:
             return state;
