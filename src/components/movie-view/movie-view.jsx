@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 export class MovieView extends React.Component {
   render() {
     const {movie} = this.props;
+    
     return (
       <div>
         <Card>
