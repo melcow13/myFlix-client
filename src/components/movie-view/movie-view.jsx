@@ -6,9 +6,6 @@ import { connect } from 'react-redux';
 export class MovieView extends React.Component {
   
   render() {
-
-  
-    
     return (
       <div>
         <Card>
@@ -32,14 +29,12 @@ export class MovieView extends React.Component {
   }
   
   const mapStateToProps = (props) =>{
-    const movies = props
-    const movie = movies.find(m => m._id === match.params.id);
 
+    const movie = props.movies.find(m => m._id === match.params.id);
     return {
-        movie
-    } 
-  
-  }
+      movie
+     }
+    }
   
 
 export default connect(mapStateToProps)(MovieView);
