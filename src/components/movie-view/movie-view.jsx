@@ -31,7 +31,7 @@ export class MovieView extends React.Component {
 
   }
   
-  const mapStateToProps = (state) =>{
+  const mapStateToProps = (props) =>{
     const movies = props
     const movie = movies.find(m => m._id === match.params.id);
 
