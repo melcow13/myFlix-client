@@ -1,10 +1,13 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 export class MovieView extends React.Component {
+  
   render() {
-    const {movie} = props;
+
+  
     
     return (
       <div>
@@ -27,10 +30,16 @@ export class MovieView extends React.Component {
   }
 
   }
-
   
+  const mapStateToProps = (state) =>{
+    const movies = props
+    const movie = movies.find(m => m._id === match.params.id);
+
+    return {
+        movie
+    } 
+  
+  }
   
 
-  
-
-export default MovieView;
+export default connect(mapStateToProps)(MovieView);

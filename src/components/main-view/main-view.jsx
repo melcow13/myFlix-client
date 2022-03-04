@@ -88,7 +88,7 @@ class MainView extends React.Component {
               <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)} />} />
               <Route element={<ProtectedRoutes user={localStorage.getItem('user')} />}>
                 <Route path="/" element={<MoviesList movies={movies}/>} />
-                <Route path="/movies/:id" element={<MovieView  movie={movies.find(m => m._id === match.params.id)}/>} />
+                <Route path="/movies/:id" element={<MovieView  movies={movies}/>} />
                 <Route path="/register" element={<RegistrationView />} />
                 <Route path="/users/:username" element={<ProfileView
                   user={this.state.user}
