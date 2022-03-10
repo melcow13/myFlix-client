@@ -1,41 +1,29 @@
-
 import { connect } from 'react-redux';
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
-const mapStateToProps = state => {
-  const { movies } = state
-  return { movies};
-};
-
-const MovieView = (movies) => {
-  const {movies} = movies
+const MovieView = ({movies}) => {
+  const [movieDetails, setMovieDetails]=useState()
   const params = useParams()
 
-  const movie = state.movies.find(movie=>movie.id===params.id)
-  if (movie) {
-    return {
-      movie
-    }
-  }
-
-
-  
+  useEffect(() => {
+    const movie = movies.find(m => m._id === params.id)
+    setMovieDetails(movie)
+  }, [])
 
   return (
     <div>
       <Card>
-        {movie?.ImagePath && <Card.Img variant="top" src={movie?.ImagePath} />}
+        {movieDetails?.ImagePath && <Card.Img variant="top" src={movieDetails?.ImagePath} />}
         <Card.Body>
-          <Card.Title>{movie?.Title}</Card.Title>
-          <Card.Text>{movie?.Description}</Card.Text>
+          <Card.Title>{movieDetails?.Title}</Card.Title>
+          <Card.Text>{movieDetails?.Description}</Card.Text>
         </Card.Body>
-        <Link to={`/directors/${movie?.Director?.Name}`}>
+        <Link to={`/directors/${movieDetails?.Director?.Name}`}>
           <Button variant="link">Director</Button>
         </Link>
-        <Link to={`/genres/${movie?.Genre?.Name}`}>
+        <Link to={`/genres/${movieDetails?.Genre?.Name}`}>
           <Button variant="link">Genre</Button>
         </Link>
         <Button>Back</Button>
@@ -44,7 +32,9 @@ const MovieView = (movies) => {
   );
 }
 
-
-  
+const mapStateToProps = state => {
+  const { movies } = state
+  return { movies };
+};
 
 export default connect(mapStateToProps)(MovieView);
