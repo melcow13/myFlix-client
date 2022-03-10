@@ -8,7 +8,7 @@ import MovieView from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import ProfileView from '../profile-view/profile-view';
 import  GenreView  from '../genre-view/genre-view';
-import {DirectorView} from '../director-view/director-view';
+import DirectorView from '../director-view/director-view';
 import { Container, Col, Row, Nav } from 'react-bootstrap'
 import MoviesList from '../movies-list/movies-list';
 import ProtectedRoutes from '../protected-routes/ProtectedRoutes';

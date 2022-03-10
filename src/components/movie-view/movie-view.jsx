@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import {React, useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
