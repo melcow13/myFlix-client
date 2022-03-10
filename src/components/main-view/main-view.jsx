@@ -7,7 +7,8 @@ import { LoginView } from '../login-view/login-view';
 import MovieView from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import ProfileView from '../profile-view/profile-view';
-
+import { GenreView } from '../genre-view/genre-view';
+import {DirectorView} from '../director-view/director-view';
 import { Container, Col, Row, Nav } from 'react-bootstrap'
 import MoviesList from '../movies-list/movies-list';
 import ProtectedRoutes from '../protected-routes/ProtectedRoutes';
@@ -90,6 +91,8 @@ class MainView extends React.Component {
                 <Route path="/" element={<MoviesList movies={movies}/>} />
                 <Route path="/movies/:id" element={<MovieView  movies={movies}/>} />
                 <Route path="/register" element={<RegistrationView />} />
+                <Route path="/genres/:name" element={<GenreView/>} />
+                <Route path="/directors/:name" element={<DirectorView/>} />
                 <Route path="/users/:username" element={<ProfileView
                   user={this.state.user}
                   onBackClick={() => history.goBack()}
