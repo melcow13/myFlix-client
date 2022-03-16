@@ -11,6 +11,7 @@ const ProfileView = (props) => {
         <div key={Math.random().toString()}>
             <UserInfo  user={user}/>
             <UpdateUser user={user} />
+            <FavoriteMovies />
             
             
            

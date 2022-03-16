@@ -42139,6 +42139,12 @@ const ProfileView = (props)=>{
                 fileName: "src/components/profile-view/profile-view.jsx",
                 lineNumber: 13,
                 columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_favoriteMovies.FavoriteMovies, {
+            }, void 0, false, {
+                fileName: "src/components/profile-view/profile-view.jsx",
+                lineNumber: 14,
+                columnNumber: 13
             }, undefined)
         ]
     }, Math.random().toString(), true, {
@@ -42495,15 +42501,14 @@ parcelHelpers.export(exports, "FavoriteMovies", ()=>FavoriteMovies
 );
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 function FavoriteMovies(favoriteMovieList) {
     _s();
-    const [movie, setMovie] = useState();
-    const params = useParams();
-    useEffect(()=>{
+    const [movie, setMovie] = _react.useState();
+    const params = _reactRouterDom.useParams();
+    _react.useEffect(()=>{
         if (params.id) getMovies(params.id);
     }, []);
     const getMovies = (id)=>{
@@ -42527,7 +42532,7 @@ function FavoriteMovies(favoriteMovieList) {
                 children: "Favorite Movies"
             }, void 0, false, {
                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                lineNumber: 33,
+                lineNumber: 34,
                 columnNumber: 17
             }, this),
             favoriteMovieList.map((m)=>{
@@ -42537,7 +42542,7 @@ function FavoriteMovies(favoriteMovieList) {
                             src: movie.ImagePath
                         }, void 0, false, {
                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                            lineNumber: 37,
+                            lineNumber: 38,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
@@ -42546,12 +42551,12 @@ function FavoriteMovies(favoriteMovieList) {
                                 children: "Movie Title"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 39,
+                                lineNumber: 40,
                                 columnNumber: 29
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                            lineNumber: 38,
+                            lineNumber: 39,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -42561,24 +42566,28 @@ function FavoriteMovies(favoriteMovieList) {
                             children: "Remove From List"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                            lineNumber: 41,
+                            lineNumber: 42,
                             columnNumber: 25
                         }, this)
                     ]
                 }, m._id, true, {
                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 36,
+                    lineNumber: 37,
                     columnNumber: 21
                 }, this));
             })
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/favorite-movies.jsx",
-        lineNumber: 32,
+        lineNumber: 33,
         columnNumber: 9
     }, this));
 }
-_s(FavoriteMovies, "HKo6ZosQFhV+XTm0YOBC6MjsS/E=", true);
+_s(FavoriteMovies, "HKo6ZosQFhV+XTm0YOBC6MjsS/E=", false, function() {
+    return [
+        _reactRouterDom.useParams
+    ];
+});
 _c = FavoriteMovies;
 var _c;
 $RefreshReg$(_c, "FavoriteMovies");
