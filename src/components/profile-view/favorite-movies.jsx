@@ -3,7 +3,7 @@ import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 export function FavoriteMovies (favoriteMovieList) {
 
- const [movie, setMovie] = useState(null);
+ const [movie, setMovie] = useState();
     const params = useParams()
 
   useEffect(() => {
