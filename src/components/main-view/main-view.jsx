@@ -20,7 +20,7 @@ class MainView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null
+      userData: null
 
     }
   }
@@ -34,7 +34,7 @@ class MainView extends React.Component {
       //   user: localStorage.getItem('user'),
       // });
       this.getMovies(accessToken);
-      this.getUser(accessToken);
+      this.getUserData(accessToken);
     }
   }
 
@@ -50,7 +50,7 @@ class MainView extends React.Component {
     });
   }
 
-  getUser(token) {
+  getUserData(token) {
     console.log('get user data');
     const Username = localStorage.getItem('user');
     axios.get(`https://myflixerupper.herokuapp.com/users/${Username}`, {
@@ -59,8 +59,8 @@ class MainView extends React.Component {
       .then(response => {
         console.log('user', response.data);
         // Assign the result to the state
-        this.setState({ user: response.data });
-        this.props.setUser({user:response.data})
+        this.setState({ userData: response.data });
+        
       })
       .catch(function (error) {
         console.log(error);
@@ -80,6 +80,7 @@ class MainView extends React.Component {
 
   render() {
     let { movies, user } = this.props;
+    let userData = this.state;
     
     return (
       <BrowserRouter>
@@ -95,7 +96,7 @@ class MainView extends React.Component {
                 <Route path="/genres/:name" element={<GenreView movies={movies}/>} />
                 <Route path="/directors/:name" element={<DirectorView movies={movies}/>} />
                 <Route path="/users/:username" element={<ProfileView
-                  user={user}
+                user={userData}
                   onBackClick={() => history.goBack()}
                 />}
                 />
