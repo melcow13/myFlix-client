@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import {React,  useEffect, useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import axios from 'axios'
