@@ -8,7 +8,7 @@ function UserInfo ({name, email}) {
                 <Col>
                     <Card>
                         <Card.Title> User:{name}</Card.Title>
-                        <Card.Text> Email:{email}</Card.Text>
+                        <Card.Title> Email:{email}</Card.Title>
                     </Card>
                 </Col>
             </Row>

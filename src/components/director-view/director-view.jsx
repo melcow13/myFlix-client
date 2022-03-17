@@ -1,28 +1,36 @@
-import React from 'react';
-import {Card, Button} from 'react-bootstrap/Card'
+import {React, useEffect, useState } from 'react';
+import {Card, Button} from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {useParams} from 'react-router-dom';
 
-export class DirectorView extends React.Component {
+const DirectorView=({movies})=>{
+  const [directorDetails, setDirectorDetails]=useState()
+  const params = useParams()
 
-componentDidMount(){
-  document.addEventListener('keypress',event=> {
-    console.log(event.key);
-  });
-}
+  useEffect(()=> {
+    const director = movies.find(m => m.Director.Name === params.name);
+    setDirectorDetails(director)
+  },[])
 
-
-  render() {
-    const { director, onBackClick } = this.props;
-
+  
     return (
+    <div>
     <Card>
-        <Card.Img variant="top" src={director.ImagePath} />
         <Card.Body>
-            <Card.Title>{director.Name}</Card.Title>
-            <Card.Text>{director.Description}</Card.Text>
-            <Card.Subtitle>{director.Birthday} </Card.Subtitle>
-          </Card.Body>
+            <Card.Title>{directorDetails?.Director?.Name}</Card.Title>
+            <Card.Text>Bio: {directorDetails?.Director?.Bio}</Card.Text>
+            <Card.Text>Birth Year: {directorDetails?.Director?.Birth}</Card.Text>
+        </Card.Body>
         <Button onClick={()=> {onBackClick(null);}}>Back</Button>
     </Card>
+    </div>  
     );
   }
-}
+
+
+const mapStateToProps = state => {
+  const { movies } = state
+  return { movies };
+};
+
+export default connect(mapStateToProps)(DirectorView);

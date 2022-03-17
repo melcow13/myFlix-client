@@ -7,7 +7,8 @@ import { LoginView } from '../login-view/login-view';
 import MovieView from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import ProfileView from '../profile-view/profile-view';
-
+import  GenreView  from '../genre-view/genre-view';
+import DirectorView from '../director-view/director-view';
 import { Container, Col, Row, Nav } from 'react-bootstrap'
 import MoviesList from '../movies-list/movies-list';
 import ProtectedRoutes from '../protected-routes/ProtectedRoutes';
@@ -58,7 +59,8 @@ class MainView extends React.Component {
       .then(response => {
         console.log('user', response.data);
         // Assign the result to the state
-        this.props.setUser({ user: response.data });
+        this.setState({ user: response.data });
+        this.props.setUser({user:response.data})
       })
       .catch(function (error) {
         console.log(error);
@@ -88,10 +90,12 @@ class MainView extends React.Component {
               <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)} />} />
               <Route element={<ProtectedRoutes user={localStorage.getItem('user')} />}>
                 <Route path="/" element={<MoviesList movies={movies}/>} />
-                <Route path="/movies/:id" element={<MovieView />} />
+                <Route path="/movies/:id" element={<MovieView  movies={movies}/>} />
                 <Route path="/register" element={<RegistrationView />} />
+                <Route path="/genres/:name" element={<GenreView movies={movies}/>} />
+                <Route path="/directors/:name" element={<DirectorView movies={movies}/>} />
                 <Route path="/users/:username" element={<ProfileView
-                  user={this.state.user}
+                  user={user}
                   onBackClick={() => history.goBack()}
                 />}
                 />
