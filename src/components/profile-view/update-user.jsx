@@ -5,6 +5,8 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 
 function UpdateUser(props) {
+    console.log({props})
+
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -18,13 +20,14 @@ function UpdateUser(props) {
     });
 
     useEffect(() => {
-        console.log(props)
-        // debugger
-        setName(props?.user?.Name || "");
-        setUsername(props?.user?.Username || "");
-        setPassword(props?.user?.Password || "");
-        setEmail(props?.user?.Email || "");
-        setBirthday(props?.user?.Birthday || "");
+        const {user} = props
+            
+            // debugger
+            setName(user.userData.Name || "");
+            setUsername(user.userData.Username);
+            setPassword(props?.user?.Password || "");
+            setEmail(props?.user?.Email || "");
+            setBirthday(props?.user?.Birthday || "");
     }, [])
 
     const validate = () => {

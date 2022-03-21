@@ -7,7 +7,7 @@ import { LoginView } from '../login-view/login-view';
 import MovieView from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import ProfileView from '../profile-view/profile-view';
-import  GenreView  from '../genre-view/genre-view';
+import GenreView from '../genre-view/genre-view';
 import DirectorView from '../director-view/director-view';
 import { Container, Col, Row, Nav } from 'react-bootstrap'
 import MoviesList from '../movies-list/movies-list';
@@ -19,6 +19,7 @@ import { setMovies, setUser } from '../../actions/actions';
 class MainView extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       userData: null
 
@@ -40,14 +41,14 @@ class MainView extends React.Component {
 
   getMovies(token) {
     axios.get('https://myflixerupper.herokuapp.com/movies', {
-      headers: { Authorization: `bearer ${token}`}
+      headers: { Authorization: `bearer ${token}` }
     })
-    .then(response=>{
-      this.props.setMovies(response.data);
-    })
-    .catch(function(error){
-      console.log(error);
-    });
+      .then(response => {
+        this.props.setMovies(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   getUserData(token) {
@@ -60,7 +61,7 @@ class MainView extends React.Component {
         console.log('user', response.data);
         // Assign the result to the state
         this.setState({ userData: response.data });
-        
+
       })
       .catch(function (error) {
         console.log(error);
@@ -81,7 +82,7 @@ class MainView extends React.Component {
   render() {
     let { movies, user } = this.props;
     let userData = this.state;
-    
+
     return (
       <BrowserRouter>
         <Container>
@@ -90,13 +91,13 @@ class MainView extends React.Component {
             <Routes>
               <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)} />} />
               <Route element={<ProtectedRoutes user={localStorage.getItem('user')} />}>
-                <Route path="/" element={<MoviesList movies={movies}/>} />
-                <Route path="/movies/:id" element={<MovieView  movies={movies}/>} />
+                <Route path="/" element={<MoviesList movies={movies} />} />
+                <Route path="/movies/:id" element={<MovieView movies={movies} />} />
                 <Route path="/register" element={<RegistrationView />} />
-                <Route path="/genres/:name" element={<GenreView movies={movies}/>} />
-                <Route path="/directors/:name" element={<DirectorView movies={movies}/>} />
-                <Route path="/users/:username" element={<ProfileView
-                user={userData}
+                <Route path="/genres/:name" element={<GenreView movies={movies} />} />
+                <Route path="/directors/:name" element={<DirectorView movies={movies} />} />
+                <Route exact path="/users/:username" element={<ProfileView
+                  user={userData}
                   onBackClick={() => history.goBack()}
                 />}
                 />
@@ -109,10 +110,10 @@ class MainView extends React.Component {
     );
   }
 }
-let mapStateToProps = state =>{
+let mapStateToProps = state => {
   return {
     movies: state.movies,
     user: state.user
   }
 }
-export default connect (mapStateToProps, {setMovies, setUser} ) (MainView);
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);

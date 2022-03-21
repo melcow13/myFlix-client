@@ -1,24 +1,24 @@
 import React from 'react';
 import UpdateUser from './update-user';
-import {FavoriteMovies} from './favorite-movies';
+import { FavoriteMovies } from './favorite-movies';
 import { connect } from 'react-redux';
-import {Card} from 'react-bootstrap';
+import { useSelector } from 'react-redux'
+import { Card } from 'react-bootstrap';
 import UserInfo from './user-info';
 
-const ProfileView = (user ) => {
-    const userData = user
+const ProfileView = (props) => {
+    //state = {}
+    const userData = props.user
+   // const movies = useSelector((state) => state.movies)
+    // if (!userData.userData) return <div>Loading...</div>
+
     return (
-        <div key={Math.random().toString()}>
-            <UserInfo  />
-            <UpdateUser user={userData} />         
-           
+        <div>
+            {userData.userData && <UpdateUser user={userData} />}
+            {userData.userData && <FavoriteMovies favoriteMovieList={userData.userData.FavoriteMovies} />}
         </div >
     )
 
 }
-const mapStateToProps = state => {
-    const { user } = state
-    return { user };
-  };
 
-  export default connect(mapStateToProps)(ProfileView);
+export default ProfileView;
