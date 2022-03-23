@@ -25,9 +25,9 @@ function UpdateUser(props) {
             // debugger
             setName(user.userData.Name || "");
             setUsername(user.userData.Username);
-            setPassword(props?.user?.Password || "");
-            setEmail(props?.user?.Email || "");
-            setBirthday(props?.user?.Birthday || "");
+            setPassword(user.userData.Password || "");
+            setEmail(user.userData.Email || "");
+            setBirthday(user.userData.Birthday || "");
     }, [])
 
     const validate = () => {

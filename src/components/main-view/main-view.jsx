@@ -78,6 +78,31 @@ class MainView extends React.Component {
     localStorage.setItem('user', authData.user.Username);
   }
 
+  addFavorites(movie) {
+    let favorites= this.state.userData.FavoriteMovies;
+    if (favorites.indexOf(movie)<0) {
+      favorites.push(movie)
+    }
+
+    this.setState(prevState => ({
+      ...prevState,
+      userData: {
+        ...prevState.userData,
+        FavoriteMovies: favorites
+      }
+    }));
+  }
+
+  removeFavorites(movieId) {
+    let currentFav = this.state.userData.FavoriteMovies;
+    let favorites = currentFav.filter(mId => {
+      return mId !== movieId
+    });
+    let userData = { ...this.state.userData };
+    userData.FavoriteMovies = favorites;
+    this.setState({ userData });
+  }
+
 
   render() {
     let { movies, user } = this.props;
@@ -91,7 +116,7 @@ class MainView extends React.Component {
             <Routes>
               <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)} />} />
               <Route element={<ProtectedRoutes user={localStorage.getItem('user')} />}>
-                <Route path="/" element={<MoviesList movies={movies} />} />
+                <Route path="/" element={<MoviesList movies={movies} addFavorite={this.addFavorites}/>} />
                 <Route path="/movies/:id" element={<MovieView movies={movies} />} />
                 <Route path="/register" element={<RegistrationView />} />
                 <Route path="/genres/:name" element={<GenreView movies={movies} />} />
@@ -99,6 +124,7 @@ class MainView extends React.Component {
                 <Route exact path="/users/:username" element={<ProfileView
                   user={userData}
                   onBackClick={() => history.goBack()}
+                  removeFavorites={this.removeFavorites}
                 />}
                 />
               </Route>
