@@ -9,8 +9,8 @@ export function FavoriteMovies (props) {
 
   // export function FavoriteMovies ({favoriteMovieList}) {
 
- const [movie, setMovie] = useState();
-    const params = useParams()
+ const [movie] = useState();
+  //  const params = useParams()
 
  // useEffect(() => {
   //  if (params.id) {
@@ -46,7 +46,7 @@ export function FavoriteMovies (props) {
                         <Link to={`/movies/${movie._id}`}>
                             <h4>Movie Title</h4>
                         </Link>
-                        <Button variant="secondary" onClick={()=> removeFav(movie._id)}>Remove From List</Button>
+                        <Button variant="secondary" onClick={()=> removeFavorites(movie._id)}>Remove From List</Button>
                     </div>
                 )
             })

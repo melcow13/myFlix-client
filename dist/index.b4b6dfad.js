@@ -42541,8 +42541,8 @@ function FavoriteMovies(props) {
     const movies = _reactRedux.useSelector((state)=>state.movies
     );
     // export function FavoriteMovies ({favoriteMovieList}) {
-    const [movie, setMovie] = _react.useState();
-    const params = _reactRouterDom.useParams();
+    const [movie] = _react.useState();
+    //  const params = useParams()
     // useEffect(() => {
     //  if (params.id) {
     //  getMovies(params.id)
@@ -42600,7 +42600,7 @@ function FavoriteMovies(props) {
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                             variant: "secondary",
-                            onClick: ()=>removeFav(movie._id)
+                            onClick: ()=>removeFavorites(movie._id)
                             ,
                             children: "Remove From List"
                         }, void 0, false, {
@@ -42622,10 +42622,9 @@ function FavoriteMovies(props) {
         columnNumber: 9
     }, this));
 }
-_s(FavoriteMovies, "FXV9+oLhVB65vr+qPG0NS844SqE=", false, function() {
+_s(FavoriteMovies, "a6J7Qx8wgquxfA3AA+SEnixm9k8=", false, function() {
     return [
-        _reactRedux.useSelector,
-        _reactRouterDom.useParams
+        _reactRedux.useSelector
     ];
 });
 _c = FavoriteMovies;
