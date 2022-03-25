@@ -111,7 +111,6 @@ function UpdateUser(props) {
                         <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
                     </Form.Group>
                     <Button type="submit" onClick={handleSubmit}>Submit</Button>
-                    <p>Already registered <Link to={'/login'}>sign in</Link>here </p>
                 </Form>
             </Col>
         </Row>

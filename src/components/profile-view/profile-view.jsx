@@ -15,7 +15,7 @@ const ProfileView = (props) => {
     return (
         <div>
             {userData.userData && <UpdateUser user={userData} />}
-            {userData.userData && <FavoriteMovies favoriteMovieList={userData.userData.FavoriteMovies} />}
+             {userData.userData && <FavoriteMovies favoriteMovieList={userData.userData.FavoriteMovies} />}
         </div >
     )
 
