@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button , Card} from 'react-bootstrap';
+import {Button , Card, CardGroup} from 'react-bootstrap';
 import axios from 'axios';
 
 import { Link } from 'react-router-dom';
@@ -33,6 +33,7 @@ export class MovieCard extends React.Component {
 
 
     return (
+    <CardGroup>
       <Card> 
           <Card.Body>
           <Card.Img src={movie.ImagePath} variant="top"/>
@@ -50,6 +51,7 @@ export class MovieCard extends React.Component {
                   </Button>
           </Card.Body>
       </Card>
+      </CardGroup>
     );
   }
 }

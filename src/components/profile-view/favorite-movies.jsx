@@ -40,13 +40,15 @@ export function FavoriteMovies(props) {
   const faveMovies = movies.filter(mov => favoriteMovieList.indexOf(mov._id) !== -1)
 
   return (
-    <Col md={4}>
+    <>
       {faveMovies.map((m) => (
+      <Col md={5}>
         <MovieCard
           movie={m}
         />
+      </Col>
       ))}
-    </Col>
+    </>
 
     
 
