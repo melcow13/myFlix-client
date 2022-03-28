@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import { Button, Col } from 'react-bootstrap';
+import { Button, Card, Col, Card} from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { MovieCard } from '../movie-card/movie-card';
@@ -40,13 +40,15 @@ export function FavoriteMovies(props) {
   const faveMovies = movies.filter(mov => favoriteMovieList.indexOf(mov._id) !== -1)
 
   return (
-    <Col md={3}>
+    <Col md={4}>
       {faveMovies.map((m) => (
         <MovieCard
           movie={m}
         />
       ))}
     </Col>
+
+    
 
   )
 

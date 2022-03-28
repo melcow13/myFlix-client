@@ -1,5 +1,5 @@
 import {React,  useEffect, useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
@@ -76,6 +76,7 @@ function UpdateUser(props) {
     };
 
     return (
+    <Container>
         <Row className="mt-5">
             <Col md={12}>
                 <Form>
@@ -114,6 +115,7 @@ function UpdateUser(props) {
                 </Form>
             </Col>
         </Row>
+        </Container>
     );
 }
 
