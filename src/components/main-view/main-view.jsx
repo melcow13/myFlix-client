@@ -9,9 +9,9 @@ import { RegistrationView } from '../registration-view/registration-view';
 import ProfileView from '../profile-view/profile-view';
 import GenreView from '../genre-view/genre-view';
 import DirectorView from '../director-view/director-view';
-import { Container, Col, Row, Nav } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import MoviesList from '../movies-list/movies-list';
-import ProtectedRoutes from '../protected-routes/ProtectedRoutes';
+
 
 // #0
 import { setMovies, setUser } from '../../actions/actions';
@@ -79,8 +79,8 @@ class MainView extends React.Component {
   }
 
   addFavorites(movie) {
-    let favorites= this.state.userData.FavoriteMovies;
-    if (favorites.indexOf(movie)<0) {
+    let favorites = this.state.userData.FavoriteMovies;
+    if (favorites.indexOf(movie) < 0) {
       favorites.push(movie)
     }
 
@@ -115,19 +115,17 @@ class MainView extends React.Component {
           <Row className="main-view justify-content-md-center">
             <Routes>
               <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)} />} />
-              {/* <Route element={<ProtectedRoutes user={localStorage.getItem('user')} />}> */}
-                <Route path="/" element={<MoviesList movies={movies} addFavorite={this.addFavorites}/>} />
-                <Route path="/movies/:id" element={<MovieView movies={movies} />} />
-                <Route path="/register" element={<RegistrationView />} />
-                <Route path="/genres/:name" element={<GenreView movies={movies} onBackClick={() => this.props.history.goBack()} />} />
-                <Route path="/directors/:name" element={<DirectorView movies={movies} onBackClick={() => this.props.history.goBack()}/>} />
-                <Route exact path="/users/:username" element={<ProfileView
-                  user={userData}
-                  onBackClick={() => this.props.history.goBack()}
-                  removeFavorites={this.removeFavorites}
-                />}
-                />
-              {/* </Route> */}
+              <Route path="/movies" element={<MoviesList movies={movies} addFavorite={this.addFavorites} />} />
+              <Route path="/movies/:id" element={<MovieView movies={movies} />} />
+              <Route path="/register" element={<RegistrationView />} />
+              <Route path="/genres/:name" element={<GenreView movies={movies} onBackClick={() => this.props.history.goBack()} />} />
+              <Route path="/directors/:name" element={<DirectorView movies={movies} onBackClick={() => this.props.history.goBack()} />} />
+              <Route exact path="/users/:username" element={<ProfileView
+                user={userData}
+                onBackClick={() => this.props.history.goBack()}
+                removeFavorites={this.removeFavorites}
+              />}
+              />
             </Routes>
           </Row>
         </Container>

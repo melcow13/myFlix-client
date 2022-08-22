@@ -10,7 +10,7 @@ const DirectorView=({movies,onBackClick})=>{
   useEffect(()=> {
     const director = movies.find(m => m.Director.Name === params.name);
     setDirectorDetails(director)
-  },[])
+  },[movies, params.name])
 
   
     return (
