@@ -3,7 +3,7 @@ import {Card, Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {useParams} from 'react-router-dom';
 
-const DirectorView=({movies})=>{
+const DirectorView=({movies,onBackClick})=>{
   const [directorDetails, setDirectorDetails]=useState()
   const params = useParams()
 

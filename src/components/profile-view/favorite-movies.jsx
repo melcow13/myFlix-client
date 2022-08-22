@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import { Button, Card, Col, Card} from 'react-bootstrap';
+import { Button, Card, Col} from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { MovieCard } from '../movie-card/movie-card';
@@ -54,21 +54,21 @@ export function FavoriteMovies(props) {
 
   )
 
-  return (
-    <div>
-      <h2>Favorite Movies</h2>
-      {faveMovies.map((m) => (
-        <div key={m._id}>
-          <img src={m.ImagePath} />
-          <Link to={`/movies/${m._id}`}>
-            <h4>{m.Title}</h4>
-          </Link>
-          <Button variant="secondary" onClick={() => removeFavorites(m._id)}>Remove From List</Button>
-        </div>
-      )
-      )
+  // return (
+  //   <div>
+  //     <h2>Favorite Movies</h2>
+  //     {faveMovies.map((m) => (
+  //       <div key={m._id}>
+  //         <img src={m.ImagePath} />
+  //         <Link to={`/movies/${m._id}`}>
+  //           <h4>{m.Title}</h4>
+  //         </Link>
+  //         <Button variant="secondary" onClick={() => removeFavorites(m._id)}>Remove From List</Button>
+  //       </div>
+  //     )
+  //     )
 
-      }
-    </div>
-  )
+  //     }
+  //   </div>
+  // )
 }

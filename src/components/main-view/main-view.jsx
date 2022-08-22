@@ -115,19 +115,19 @@ class MainView extends React.Component {
           <Row className="main-view justify-content-md-center">
             <Routes>
               <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)} />} />
-              <Route element={<ProtectedRoutes user={localStorage.getItem('user')} />}>
+              {/* <Route element={<ProtectedRoutes user={localStorage.getItem('user')} />}> */}
                 <Route path="/" element={<MoviesList movies={movies} addFavorite={this.addFavorites}/>} />
                 <Route path="/movies/:id" element={<MovieView movies={movies} />} />
                 <Route path="/register" element={<RegistrationView />} />
-                <Route path="/genres/:name" element={<GenreView movies={movies} />} />
-                <Route path="/directors/:name" element={<DirectorView movies={movies} />} />
+                <Route path="/genres/:name" element={<GenreView movies={movies} onBackClick={() => this.props.history.goBack()} />} />
+                <Route path="/directors/:name" element={<DirectorView movies={movies} onBackClick={() => this.props.history.goBack()}/>} />
                 <Route exact path="/users/:username" element={<ProfileView
                   user={userData}
-                  onBackClick={() => history.goBack()}
+                  onBackClick={() => this.props.history.goBack()}
                   removeFavorites={this.removeFavorites}
                 />}
                 />
-              </Route>
+              {/* </Route> */}
             </Routes>
           </Row>
         </Container>

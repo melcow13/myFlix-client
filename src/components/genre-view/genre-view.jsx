@@ -3,7 +3,7 @@ import {Card, Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {useParams} from 'react-router-dom';
 
-const GenreView=({movies})=>{
+const GenreView=({movies, onBackClick})=>{
   const [genreDetails, setGenreDetails]=useState()
   const params = useParams()
 
