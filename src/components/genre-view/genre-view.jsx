@@ -10,7 +10,7 @@ const GenreView=({movies, onBackClick})=>{
   useEffect(()=> {
     const genre = movies.find(m => m.Genre.Name === params.name);
     setGenreDetails(genre)
-  },[])
+  },[movies, params.name])
 
   
     return (

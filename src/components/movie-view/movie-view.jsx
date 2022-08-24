@@ -10,7 +10,7 @@ const MovieView = ({movies}) => {
   useEffect(() => {
     const movie = movies.find(m => m._id === params.id)
     setMovieDetails(movie)
-  }, [])
+  }, [movies, params.id])
 
   return (
     <div>

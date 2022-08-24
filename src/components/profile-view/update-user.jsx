@@ -1,8 +1,6 @@
 import {React,  useEffect, useState } from 'react';
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
-import PropTypes from 'prop-types';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
 
 function UpdateUser(props) {
     console.log({props})
@@ -28,7 +26,7 @@ function UpdateUser(props) {
             setPassword(user.userData.Password || "");
             setEmail(user.userData.Email || "");
             setBirthday(user.userData.Birthday || "");
-    }, [])
+    }, [props])
 
     const validate = () => {
         let isReq = true;
@@ -52,7 +50,7 @@ function UpdateUser(props) {
         e.preventDefault();
         const isReq = validate();
         if (isReq) {
-            axios.put('https://myflixerupper.herokuapp.com/users/${Username}', {
+            axios.put(`https://myflixerupper.herokuapp.com/users/${username}`, {
                 Name: name,
                 Username: username,
                 Password: password,

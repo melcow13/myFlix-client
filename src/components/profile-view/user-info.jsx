@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, Row, Col, Container, Button} from 'react-bootstrap'
+import {Card, Row, Col, Container} from 'react-bootstrap'
 
 function UserInfo ({name, email}) {
     return (

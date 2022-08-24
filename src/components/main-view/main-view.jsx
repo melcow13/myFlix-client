@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Menubar } from '../navbar/navbar';
 import { LoginView } from '../login-view/login-view';
@@ -11,14 +10,13 @@ import GenreView from '../genre-view/genre-view';
 import DirectorView from '../director-view/director-view';
 import { Container, Row } from 'react-bootstrap'
 import MoviesList from '../movies-list/movies-list';
-
-
-// #0
+//redux
+import { connect } from 'react-redux';
 import { setMovies, setUser } from '../../actions/actions';
 
 class MainView extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       userData: null
@@ -46,7 +44,7 @@ class MainView extends React.Component {
       .then(response => {
         this.props.setMovies(response.data);
       })
-      .catch(function (error) {
+      .catch((error)=> {
         console.log(error);
       });
   }
@@ -115,7 +113,7 @@ class MainView extends React.Component {
           <Row className="main-view justify-content-md-center">
             <Routes>
               <Route path="/login" element={<LoginView onLoggedIn={user => this.onLoggedIn(user)} />} />
-              <Route path="/movies" element={<MoviesList movies={movies} addFavorite={this.addFavorites} />} />
+              <Route path="/" element={<MoviesList movies={movies} addFavorite={this.addFavorites} />} />
               <Route path="/movies/:id" element={<MovieView movies={movies} />} />
               <Route path="/register" element={<RegistrationView />} />
               <Route path="/genres/:name" element={<GenreView movies={movies} onBackClick={() => this.props.history.goBack()} />} />
@@ -134,7 +132,7 @@ class MainView extends React.Component {
     );
   }
 }
-let mapStateToProps = state => {
+let mapStateToProps = (state) => {
   return {
     movies: state.movies,
     user: state.user
