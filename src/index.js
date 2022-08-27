@@ -13,15 +13,19 @@ import './index.scss';
 
 const store = createStore(moviesApp, devToolsEnhancer());
 
+
 // Main component (will eventually use all the others)
 class MyFlixApplication extends React.Component {
+  
   render() {
     return (
+     <div roote>
       <Provider store={store}>
         <Container>
           <MainView />
         </Container>
       </Provider>
+      </div> 
     );
   }
 }

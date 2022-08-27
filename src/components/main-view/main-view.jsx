@@ -13,6 +13,7 @@ import MoviesList from '../movies-list/movies-list';
 //redux
 import { connect } from 'react-redux';
 import { setMovies, setUser } from '../../actions/actions';
+import "../main-view/main-view.scss";
 
 class MainView extends React.Component {
   constructor() {

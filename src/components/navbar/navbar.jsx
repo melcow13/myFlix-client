@@ -19,10 +19,10 @@ export function Menubar({user}) {
     };
 
     return (
-        <Navbar className="main-nav" sticky="top" bg="dark" expand="lg" variant="dark">
+        <Navbar className="main-nav" sticky="top" bg='white' expand="lg" variant="light">
             <Container>
                 <Navbar.Brand className="navbar-logo" href="/">
-                    MyFlixerupper
+                    Marvel Universe
                 </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button , Card, CardGroup} from 'react-bootstrap';
+import { Button, Card, CardGroup } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../movie-card/movie-card.scss'
+
 
 export class MovieCard extends React.Component {
   render() {
@@ -32,24 +34,24 @@ export class MovieCard extends React.Component {
 
 
     return (
-    <CardGroup>
-      <Card> 
+      <CardGroup>
+        <Card style={{}} responsive>
+          <Card.Img className="card-img-top" src={movie.ImagePath} variant="top" responsive/>
           <Card.Body>
-          <Card.Img src={movie.ImagePath} variant="top"/>
-            <Card.Title>{movie.Title}</Card.Title>
-            <Link to={`/movies/${movie._id}`}>
-            <Button variant="link">View</Button>
-          </Link>
-          <Button className="button_card_main-view"
-                    style={{ margin: "10px" }}
-                    size="sm"
-                    type="submit"
-                    variant="outline-info"
-                    onClick={addtoFavorites}>
-                    Favorite it
-                  </Button>
+            <Card.Title style={{ fontSize: 16 }}>{movie.Title}</Card.Title>
+              <Link to={`/movies/${movie._id}`}>
+                <Button variant="danger">View</Button>
+              </Link>
+              <Button className="button_card_main-view"
+                style={{ margin: "10px" }}
+                size="sm"
+                type="submit"
+                variant="warning"
+                onClick={addtoFavorites}>
+                  Favorite
+              </Button>
           </Card.Body>
-      </Card>
+        </Card>
       </CardGroup>
     );
   }
@@ -71,6 +73,6 @@ MovieCard.propTypes = {
     }),
     Featured: PropTypes.bool,
     ImagePath: PropTypes.string.isRequired
-    }).isRequired,
-    onBackClick: PropTypes.func
+  }).isRequired,
+  onBackClick: PropTypes.func
 };
