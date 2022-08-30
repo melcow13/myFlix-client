@@ -1,9 +1,9 @@
-import {React,  useEffect, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import axios from 'axios'
 
 function UpdateUser(props) {
-    console.log({props})
+    console.log({ props })
 
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
@@ -18,14 +18,14 @@ function UpdateUser(props) {
     });
 
     useEffect(() => {
-        const {user} = props
-            
-            // debugger
-            setName(user.userData.Name || "");
-            setUsername(user.userData.Username);
-            setPassword(user.userData.Password || "");
-            setEmail(user.userData.Email || "");
-            setBirthday(user.userData.Birthday || "");
+        const { user } = props
+
+        // debugger
+        setName(user.userData.Name || "");
+        setUsername(user.userData.Username);
+        setPassword(user.userData.Password || "");
+        setEmail(user.userData.Email || "");
+        setBirthday(user.userData.Birthday || "");
     }, [props])
 
     const validate = () => {
@@ -74,46 +74,39 @@ function UpdateUser(props) {
     };
 
     return (
-    <Container>
-        <Row className="mt-5">
-            <Col md={12}>
-                <Form>
-                    <h3>Update</h3>
-                    <p></p>
+            <Form style={{color:"white", display:"block"}}>
+                <h3>Update</h3>
 
-                    <Form.Group controlId="formName" className="update-form-inputs">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" value={name} onChange={e => setName(e.target.value)} />
-                        {values.nameErr && <p>{values.nameErr} </p>}
-                    </Form.Group>
+                <Form.Group controlId="formName" className="update-form-inputs">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" value={name} onChange={e => setName(e.target.value)} />
+                    {values.nameErr && <p>{values.nameErr} </p>}
+                </Form.Group>
 
-                    <Form.Group controlid="formUsername" className="update-form-inputs">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
-                        {values.usernameErr && <p>{values.usernameErr} </p>}
-                    </Form.Group>
+                <Form.Group controlid="formUsername" className="update-form-inputs">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
+                    {values.usernameErr && <p>{values.usernameErr} </p>}
+                </Form.Group>
 
-                    <Form.Group controlId="formPassword" className="update-form-inputs">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
-                        {values.passwordErr && <p>{values.passwordErr} </p>}
-                    </Form.Group>
+                <Form.Group controlId="formPassword" className="update-form-inputs">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
+                    {values.passwordErr && <p>{values.passwordErr} </p>}
+                </Form.Group>
 
-                    <Form.Group controlId="formEmail" className="update-form-inputs">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} />
-                        {values.emailErr && <p>{values.emailErr} </p>}
-                    </Form.Group>
+                <Form.Group controlId="formEmail" className="update-form-inputs">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} />
+                    {values.emailErr && <p>{values.emailErr} </p>}
+                </Form.Group>
 
-                    <Form.Group controlId="formBirthday" className="update-form-inputs">
-                        <Form.Label>Birthday</Form.Label>
-                        <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
-                    </Form.Group>
-                    <Button type="submit" onClick={handleSubmit}>Submit</Button>
-                </Form>
-            </Col>
-        </Row>
-        </Container>
+                <Form.Group controlId="formBirthday" className="update-form-inputs">
+                    <Form.Label>Birthday</Form.Label>
+                    <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
+                </Form.Group>
+                <Button type="submit" onClick={handleSubmit}>Submit</Button>
+            </Form>
     );
 }
 

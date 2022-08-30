@@ -1,5 +1,6 @@
 import React from 'react';
-import {Navbar, Container, Nav, Button} from 'react-bootstrap';
+import {Navbar, Container, Nav, Button, Image} from 'react-bootstrap';
+import "../navbar/navbar.scss"
 export function Menubar({user}) {
 
     const onLoggedOut = () => {
@@ -19,10 +20,10 @@ export function Menubar({user}) {
     };
 
     return (
-        <Navbar className="main-nav" sticky="top" bg='white' expand="lg" variant="light">
+        <Navbar className="navbar navbar-dark bg-black">
             <Container>
                 <Navbar.Brand className="navbar-logo" href="/">
-                    Marvel Universe
+                    <Image src="marvellogo.jpeg" style={{width:"250px"}}/>
                 </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
