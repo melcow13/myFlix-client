@@ -1,7 +1,7 @@
 import React from 'react';
-import {Navbar, Container, Nav, Button, Image} from 'react-bootstrap';
+import { Navbar, Nav, Button, Container } from 'react-bootstrap';
 import "../navbar/navbar.scss"
-export function Menubar({user}) {
+export function Menubar({ user }) {
 
     const onLoggedOut = () => {
         localStorage.clear();
@@ -20,45 +20,51 @@ export function Menubar({user}) {
     };
 
     return (
-        <Navbar className="navbar navbar-dark bg-black">
+        <Navbar bg="black" variant="dark">
             <Container>
-                <Navbar.Brand className="navbar-logo" href="/">
-                    <Image src="marvellogo.jpeg" style={{width:"250px"}}/>
-                </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="ml-auto">
-                            {isAuth() && (
-                                <Nav.Link href={`/users/${user}`}>
-                                    Profile 
-                                </Nav.Link>
-                            )}
-                            {isAuth() && (
-                                <Nav.Link href="/">
-                                    Home
-                                </Nav.Link>
-                            )}
-                        
-                            {isAuth()&&(
-                                <Button variant ="link" onClick={()=> {
-                                    onLoggedOut()
-                                }}>Logout</Button>
-                            )}
-                            {!isAuth() && (
-                                <Nav.Link href="/login">
-                                    Sign-in
-                                </Nav.Link>
-                            )}
-                            {!isAuth() && (
-                                <Nav.Link href="/register">
-                                    Sign-up
-                                </Nav.Link>
-                            )}
-                        </Nav>
-                    </Navbar.Collapse>
+            <Navbar.Brand className="navbar-logo" href="/">
+            <img
+              alt=""
+              src="/redlogo.svg"
+              width="60"
+              height="60"
+              className="d-inline-block"
+            />{' '}
+           Marvel Movie Universe
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="ml-auto" style={{color:"white"}}>
+                    {isAuth() && (
+                        <Nav.Link href={`/users/${user}`}>
+                            Profile
+                        </Nav.Link>
+                    )}
+                    {isAuth() && (
+                        <Nav.Link href="/">
+                            Home
+                        </Nav.Link>
+                    )}
+
+                    {isAuth() && (
+                        <Button variant="link" onClick={() => {
+                            onLoggedOut()
+                        }}>Logout</Button>
+                    )}
+                    {!isAuth() && (
+                        <Nav.Link href="/login">
+                            Sign-in
+                        </Nav.Link>
+                    )}
+                    {!isAuth() && (
+                        <Nav.Link href="/register">
+                            Sign-up
+                        </Nav.Link>
+                    )}
+                </Nav>
+            </Navbar.Collapse>
             </Container>
         </Navbar>
     )
 }
 
-   

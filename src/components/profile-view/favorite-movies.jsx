@@ -1,6 +1,5 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import { CardGroup, Col, Row } from 'react-bootstrap';
-
 import { useSelector } from 'react-redux';
 import { MovieCard } from '../movie-card/movie-card';
 
@@ -11,7 +10,7 @@ export function FavoriteMovies(props) {
 
   // export function FavoriteMovies ({favoriteMovieList}) {
 
-  const [movie] = useState();
+  
   //  const params = useParams()
 
   // useEffect(() => {
