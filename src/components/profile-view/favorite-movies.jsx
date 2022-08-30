@@ -1,6 +1,6 @@
-import { React, useState, useEffect } from 'react';
-import { Button, Card, Col} from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { React, useState } from 'react';
+import { CardGroup, Col, Row } from 'react-bootstrap';
+
 import { useSelector } from 'react-redux';
 import { MovieCard } from '../movie-card/movie-card';
 
@@ -40,17 +40,20 @@ export function FavoriteMovies(props) {
   const faveMovies = movies.filter(mov => favoriteMovieList.indexOf(mov._id) !== -1)
 
   return (
-    <>
+    <CardGroup>
+      <Row xs={1} md={2} className="g-4">
       {faveMovies.map((m) => (
-      <Col md={5}>
-        <MovieCard
-          movie={m}
-        />
-      </Col>
+        <Col md={6} style={{ width: '20rem' }}>
+          <MovieCard
+            movie={m}
+          />
+        </Col>
+      
       ))}
-    </>
+      </Row>
+    </CardGroup>
 
-    
+
 
   )
 
