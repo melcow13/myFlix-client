@@ -74,38 +74,34 @@ function UpdateUser(props) {
     };
 
     return (
-            <Form style={{color:"white", display:"block"}}>
-                <h3>Update</h3>
-
+            <Form class="border" style={{color:"white", display:"block"}}>
+                <h2>Profile</h2>
                 <Form.Group controlId="formName" className="update-form-inputs">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" value={name} onChange={e => setName(e.target.value)} />
                     {values.nameErr && <p>{values.nameErr} </p>}
                 </Form.Group>
-
                 <Form.Group controlid="formUsername" className="update-form-inputs">
                     <Form.Label>Username</Form.Label>
                     <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
                     {values.usernameErr && <p>{values.usernameErr} </p>}
                 </Form.Group>
-
                 <Form.Group controlId="formPassword" className="update-form-inputs">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
                     {values.passwordErr && <p>{values.passwordErr} </p>}
                 </Form.Group>
-
                 <Form.Group controlId="formEmail" className="update-form-inputs">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} />
                     {values.emailErr && <p>{values.emailErr} </p>}
                 </Form.Group>
-
                 <Form.Group controlId="formBirthday" className="update-form-inputs">
                     <Form.Label>Birthday</Form.Label>
                     <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
                 </Form.Group>
-                <Button type="submit" onClick={handleSubmit}>Submit</Button>
+                <br/>
+                <Button type="submit" onClick={handleSubmit}>Edit</Button>
             </Form>
     );
 }

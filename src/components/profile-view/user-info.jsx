@@ -1,14 +1,25 @@
 import React from 'react'
 import {Card, Row, Col, Container} from 'react-bootstrap'
 
-function UserInfo ({name, email}) {
+function UserInfo (props) {
+    
+
+    console.log({props})
+    
+    
     return (
         <Container>
             <Row>
                 <Col>
                     <Card>
-                        <Card.Title> User:{name}</Card.Title>
-                        <Card.Title> Email:{email}</Card.Title>
+                        <Card.Body>
+                            <Card.Title>Profile Info</Card.Title>
+                        <Card.Text>
+                        Username:{props.user.userData.Username}<br/>
+                        Email:{props.user.userData.Email}<br/>
+                        Name:{props.user.userData.Name}
+                        </Card.Text>
+                        </Card.Body>
                     </Card>
                 </Col>
             </Row>

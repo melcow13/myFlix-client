@@ -35,10 +35,10 @@ export class MovieCard extends React.Component {
 
     return (
       <CardGroup>
-        <Card style={{}} responsive>
+        <Card style={{ height: "100%" }} >
           <Card.Img className="card-img-top" src={movie.ImagePath} variant="top" responsive/>
           <Card.Body>
-            <Card.Title style={{ fontSize: 16 }}>{movie.Title}</Card.Title>
+            <Card.Title className="col-17 text-truncate" style={{ fontSize: 16 }}>{movie.Title}</Card.Title>
               <Link to={`/movies/${movie._id}`}>
                 <Button variant="danger">View</Button>
               </Link>
