@@ -42,7 +42,7 @@ export function FavoriteMovies(props) {
     <CardGroup>
       <Row xs={1} md={2} className="g-4">
       {faveMovies.map((m) => (
-        <Col md={6} style={{ width: '20rem' }}>
+        <Col md={6} style={{ width: '18rem' }}>
           <MovieCard
             movie={m}
           />

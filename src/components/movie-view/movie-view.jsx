@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import {React, useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
+import "../movie-view/movie-view.scss"
 
 const MovieView = ({movies}) => {
   const [movieDetails, setMovieDetails]=useState()
@@ -14,19 +15,20 @@ const MovieView = ({movies}) => {
 
   return (
     <div>
-      <Card>
-        {movieDetails?.ImagePath && <Card.Img variant="top" src={movieDetails?.ImagePath} />}
+      <Card className="cardview" >
+        <Card.Img className="mx-auto d-block" variant="top" src={movieDetails?.ImagePath} style={{ objectFit: 'cover', width: '300px',
+    justifyContent:'center'}}/>
         <Card.Body>
-          <Card.Title>{movieDetails?.Title}</Card.Title>
+          <Card.Title className="card-title">{movieDetails?.Title}</Card.Title>
           <Card.Text>{movieDetails?.Description}</Card.Text>
         </Card.Body>
         <Link to={`/directors/${movieDetails?.Director?.Name}`}>
-          <Button variant="link">Director</Button>
+          <Button variant="danger" style={{margin:"10px"}} size='sm'>Director</Button>
         </Link>
         <Link to={`/genres/${movieDetails?.Genre?.Name}`}>
-          <Button variant="link">Genre</Button>
+          <Button variant="danger"  style={{margin:"10px"}} size='sm'>Genre</Button>
         </Link>
-        <Button>Back</Button>
+        <Button style={{margin:"10px"}} size='lg'>Back</Button>
       </Card>
     </div>
   );

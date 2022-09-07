@@ -20,9 +20,9 @@ export function Menubar({ user }) {
     };
 
     return (
-        <Navbar bg="black" variant="dark">
+        <Navbar className="navbar" bg="black" variant="dark">
             <Container>
-            <Navbar.Brand className="navbar-logo" href="/">
+            <Navbar.Brand className="navbar-logo" href="/" >
             <img
               alt=""
               src="/redlogo.svg"
